@@ -3,19 +3,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package wordle_goncalo.gui;
-
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import wordle_goncalo.classes.*;
 /**
  *
  * @author Gonçalo
  */
 public class MainJFrame extends javax.swing.JFrame {
 
+    private int contador=0;//contador para saber en que palabra voy
+    private IMotorWordle motor;
+    private FixedLengthString palabra;
+    private String entrada;
+    private static final java.awt.Color NEGRO = new java.awt.Color(153,0,0);
     /**
      * Creates new form MainJFrame
      */
-    public MainJFrame() {
+    public MainJFrame(IMotorWordle motor) {
+//        inputjTextField1 = new JTextField(15);
+//         new Limit5Char().initComponent(inputjTextField1);
+//         inputjTextField1 =  new Limit5Char().initComponent(inputjTextField1);
+//        inputjTextField1 =wordle_goncalo.classes.Limit5Char.getJTextField(inputjTextField1);
+//        inputjTextField1.setDocument((new Limit5Char.LimitJTextField(5)));
+//        new Limit5Char().initComponent();
         initComponents();
+        this.motor=motor;
+        this.palabra=motor.obtenerPalabraAleatoria();
+        
     }
+    public MainJFrame() {
+//        inputjTextField1 = new JTextField(15);
+//         new Limit5Char().initComponent(inputjTextField1);
+//         inputjTextField1 =  new Limit5Char().initComponent(inputjTextField1);
+//        inputjTextField1 =wordle_goncalo.classes.Limit5Char.getJTextField(inputjTextField1);
+//        inputjTextField1.setDocument((new Limit5Char.LimitJTextField(5)));
+//        new Limit5Char().initComponent();gonca
+        initComponents();
+        this.motor=new MotorTest();
+        this.palabra=motor.obtenerPalabraAleatoria();
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +88,8 @@ public class MainJFrame extends javax.swing.JFrame {
         a63jLabel6_3 = new javax.swing.JLabel();
         a64jLabel6_4 = new javax.swing.JLabel();
         a65jLabel6_5 = new javax.swing.JLabel();
+        inputjTextField1 = new javax.swing.JTextField();
+        avisosjLabel1 = new javax.swing.JLabel();
         tecladojPanel3 = new javax.swing.JPanel();
         DosFilasTecladojPanel3 = new javax.swing.JPanel();
         jButton1_1 = new javax.swing.JButton();
@@ -90,6 +121,10 @@ public class MainJFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        archivojMenu1 = new javax.swing.JMenu();
+        motoresjMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -249,10 +284,56 @@ public class MainJFrame extends javax.swing.JFrame {
         a65jLabel6_5.setText("-");
         letrasjPanel2.add(a65jLabel6_5);
 
+        inputjTextField1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        inputjTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputjTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(nombrejLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(inputjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(letrasjPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(20, Short.MAX_VALUE)
+                    .addComponent(avisosjLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(23, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(nombrejLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(letrasjPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(inputjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(413, Short.MAX_VALUE)
+                    .addComponent(avisosjLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         DosFilasTecladojPanel3.setLayout(new java.awt.GridLayout(2, 10));
 
         jButton1_1.setText("Q");
-        jButton1_1.setPreferredSize(new java.awt.Dimension(20, 24));
+        jButton1_1.setPreferredSize(new java.awt.Dimension(19, 24));
         jButton1_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_1ActionPerformed(evt);
@@ -318,6 +399,11 @@ public class MainJFrame extends javax.swing.JFrame {
         DosFilasTecladojPanel3.add(jButton2_10);
 
         enviarjButton1.setText("Enviar");
+        enviarjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarjButton1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Z");
 
@@ -354,11 +440,11 @@ public class MainJFrame extends javax.swing.JFrame {
         tecladojPanel3.setLayout(tecladojPanel3Layout);
         tecladojPanel3Layout.setHorizontalGroup(
             tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tecladojPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tecladojPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(DosFilasTecladojPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(tecladojPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tecladojPanel3Layout.createSequentialGroup()
                         .addComponent(enviarjButton1)
                         .addGap(0, 0, 0)
                         .addComponent(jButton1)
@@ -375,70 +461,84 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(jButton7)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton8))))
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         tecladojPanel3Layout.setVerticalGroup(
             tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tecladojPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(DosFilasTecladojPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DosFilasTecladojPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enviarjButton1)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tecladojPanel3Layout.createSequentialGroup()
+                        .addGroup(tecladojPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enviarjButton1)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2)
+                            .addComponent(jButton3)
+                            .addComponent(jButton4)
+                            .addComponent(jButton5)
+                            .addComponent(jButton6)
+                            .addComponent(jButton7))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(letrasjPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tecladojPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(nombrejLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(nombrejLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(letrasjPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tecladojPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel2.setText("jLabel2");
+
+        archivojMenu1.setText("Archivo");
+        jMenuBar1.add(archivojMenu1);
+
+        motoresjMenu2.setText("Motores");
+        jMenuBar1.add(motoresjMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tecladojPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tecladojPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inputjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputjTextField1ActionPerformed
+        //this.inputjTextField1
+    }//GEN-LAST:event_inputjTextField1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -448,13 +548,143 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1_1ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void enviarjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarjButton1ActionPerformed
+        if(contador==0){
+        do {            
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if(entrada.matches("[a-zA-Z]{5}")){
+            if(motor.checkPalabra(entrada)){
+          a11jLabel1_1.setText(entrada.charAt(0)+"");
+          a12jLabel1_2.setText(entrada.charAt(1)+"");
+          a13jLabel1_3.setText(entrada.charAt(2)+"");
+          a14jLabel1_4.setText(entrada.charAt(3)+"");
+          a15jLabel1_5.setText(entrada.charAt(4)+"");
+          contador++;
+            }
+            else{
+//                this.avisosjLabel1.setText("La palabra no existe");
+                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+                entrada = this.inputjTextField1.getText().toUpperCase();
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+            }
+      }
+      else{
+//            this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+                  entrada = this.inputjTextField1.getText().toUpperCase();
+
+      }
+        } while (!motor.checkPalabra(entrada) || !entrada.matches("[a-zA-Z]{5}"));
+        }
+        else if(contador==1){
+        do {            
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if(entrada.matches("[a-zA-Z]{5}")){
+            if(motor.checkPalabra(entrada)){
+          a21jLabel2_1.setText(entrada.charAt(0)+"");
+          a22jLabel2_2.setText(entrada.charAt(1)+"");
+          a23jLabel2_3.setText(entrada.charAt(2)+"");
+          a24jLabel2_4.setText(entrada.charAt(3)+"");
+          a25jLabel2_5.setText(entrada.charAt(4)+"");
+          contador++;
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+            }
+      }
+      else{
+          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+      }
+        } while (!motor.checkPalabra(entrada) || !entrada.matches("[a-zA-Z]{5}"));
+        }
+        else if(contador==2){
+        do {            
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if(entrada.matches("[a-zA-Z]{5}")){
+            if(motor.checkPalabra(entrada)){
+          a31jLabel3_1.setText(entrada.charAt(0)+"");
+          a32jLabel3_2.setText(entrada.charAt(1)+"");
+          a33jLabel3_3.setText(entrada.charAt(2)+"");
+          a34jLabel3_4.setText(entrada.charAt(3)+"");
+          a35jLabel3_5.setText(entrada.charAt(4)+"");
+          contador++;
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+            }
+      }
+      else{
+          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+      }
+        } while (!motor.checkPalabra(entrada) || !entrada.matches("[a-zA-Z]{5}"));
+        }
+        else if(contador==3){
+        do {            
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if(entrada.matches("[a-zA-Z]{5}")){
+            if(motor.checkPalabra(entrada)){
+          a41jLabel4_1.setText(entrada.charAt(0)+"");
+          a42jLabel4_2.setText(entrada.charAt(1)+"");
+          a43jLabel4_3.setText(entrada.charAt(2)+"");
+          a44jLabel4_4.setText(entrada.charAt(3)+"");
+          a45jLabel4_5.setText(entrada.charAt(4)+"");
+          contador++;
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+            }
+      }
+      else{
+          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+      }
+        } while (!motor.checkPalabra(entrada) || !entrada.matches("[a-zA-Z]{5}"));
+        }
+        else if(contador==4){
+        do {            
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if(entrada.matches("[a-zA-Z]{5}")){
+            if(motor.checkPalabra(entrada)){
+          a51jLabel5_1.setText(entrada.charAt(0)+"");
+          a52jLabel5_2.setText(entrada.charAt(1)+"");
+          a53jLabel5_3.setText(entrada.charAt(2)+"");
+          a54jLabel5_4.setText(entrada.charAt(3)+"");
+          a55jLabel5_5.setText(entrada.charAt(4)+"");
+          contador++;
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+            }
+      }
+      else{
+          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+      }
+        } while (!motor.checkPalabra(entrada) || !entrada.matches("[a-zA-Z]{5}"));
+        }
+        else if(contador==5){
+        do {            
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if(entrada.matches("[a-zA-Z]{5}")){
+            if(motor.checkPalabra(entrada)){
+          a61jLabel6_1.setText(entrada.charAt(0)+"");
+          a62jLabel6_2.setText(entrada.charAt(1)+"");
+          a63jLabel6_3.setText(entrada.charAt(2)+"");
+          a64jLabel6_4.setText(entrada.charAt(3)+"");
+          a65jLabel6_5.setText(entrada.charAt(4)+"");
+          contador++;
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+            }
+      }
+      else{
+          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+      }
+        } while (!motor.checkPalabra(entrada) || !entrada.matches("[a-zA-Z]{5}"));
+        }
+        else{
+            System.out.println("ACABASTE");
+        }
+    }//GEN-LAST:event_enviarjButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -523,7 +753,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel a63jLabel6_3;
     private javax.swing.JLabel a64jLabel6_4;
     private javax.swing.JLabel a65jLabel6_5;
+    private javax.swing.JMenu archivojMenu1;
+    private javax.swing.JLabel avisosjLabel1;
     private javax.swing.JButton enviarjButton1;
+    private javax.swing.JTextField inputjTextField1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_1;
     private javax.swing.JButton jButton1_10;
@@ -552,8 +785,11 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel letrasjPanel2;
+    private javax.swing.JMenu motoresjMenu2;
     private javax.swing.JLabel nombrejLabel1;
     private javax.swing.JPanel tecladojPanel3;
     // End of variables declaration//GEN-END:variables

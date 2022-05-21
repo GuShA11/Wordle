@@ -30,8 +30,8 @@ public class MotorTest implements IMotorWordle{
     }
 
     @Override
-    public FixedLengthString obtenerPalabraAleatoria() {
+    public String obtenerPalabraAleatoria() {
         java.util.Random generador = new java.util.Random();
-        return new FixedLengthString(nombre.get(generador.nextInt(nombre.size())));
+        return new String(nombre.get(generador.nextInt(nombre.size())));
     }
 }

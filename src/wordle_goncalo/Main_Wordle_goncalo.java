@@ -19,7 +19,7 @@ public class Main_Wordle_goncalo {
          Motor1 m1 = new Motor1();
          MotorTest m2= new MotorTest();
         
-        wordle_goncalo.Wordle.lanzar(m2);
+        wordle_goncalo.Wordle.lanzar(m1);
     }
 }
     

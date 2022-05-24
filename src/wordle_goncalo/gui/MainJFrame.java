@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package wordle_goncalo.gui;
+
 import java.awt.Color;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,39 +11,45 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import wordle_goncalo.classes.*;
+
 /**
  *
  * @author Gonçalo
  */
 public class MainJFrame extends javax.swing.JFrame {
-    
+
     String mensaje;
 
-    private Map<String,Integer> letrasPorPalabra;
-    private int contador=0;//contador para saber con que fila estoy trabajando
+    private Map<Character, Integer> letrasPorPalabra;
+    private int contador = 0;//contador para saber con que fila estoy trabajando
     private IMotorWordle motor;
     private String palabra;
     private String entrada;
-    private static final java.awt.Color COLOR_NEGRO = Color.BLACK;//new java.awt.Color(64,64,64);
-    private static final java.awt.Color COLOR_VERDE = new java.awt.Color(51,255,51);
+    private static final java.awt.Color COLOR_ROJO = Color.RED;//new java.awt.Color(64,64,64);
+    private static final java.awt.Color COLOR_VERDE = new java.awt.Color(51, 255, 51);
     private static final java.awt.Color COLOR_AMARILLO = Color.YELLOW;//new java.awt.Color(255,255,102);
+
     /**
      * Creates new form MainJFrame
+     *
      * @param motor
      */
     public MainJFrame(IMotorWordle motor) {
+        this.letrasPorPalabra = new LinkedHashMap<>();
         initComponents();
-        this.letrasPorPalabra= new LinkedHashMap<>();
-        this.motor=motor;
-        this.palabra=motor.obtenerPalabraAleatoria();
-        
+        this.motor = motor;
+        this.palabra = motor.obtenerPalabraAleatoria().toUpperCase();
+//        contarLetrasCorrectas();
+
     }
+
     public MainJFrame() {
+        this.letrasPorPalabra = new LinkedHashMap<>();
         initComponents();
-        this.letrasPorPalabra= new LinkedHashMap<>();
-        this.motor=new MotorTest();
-        this.palabra=motor.obtenerPalabraAleatoria();
-        
+        this.motor = new MotorTest();
+        this.palabra = motor.obtenerPalabraAleatoria().toUpperCase();
+//        contarLetrasCorrectas();
+
     }
 
     /**
@@ -560,127 +567,125 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_1ActionPerformed
 
     private void enviarjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarjButton1ActionPerformed
-       if(contador==0){
-        entrada = this.inputjTextField1.getText();
-        if(entrada.matches("[a-zA-Z]{5}")){
-            if(motor.checkPalabra(entrada)){
-                checkFila(a11jLabel1_1,0);
-                checkFila(a12jLabel1_2,1);
-                checkFila(a13jLabel1_3,2);
-                checkFila(a14jLabel1_4,3);
-                checkFila(a15jLabel1_5,4);
-          contador++;
-            }
-            else{
-                this.avisosjLabel1.setText("La palabra no existe");
-            }
-      }
-      else{
-            this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-      }
+        switch (contador) {
+            case 0:
+                entrada = this.inputjTextField1.getText().toUpperCase();
+                if (entrada.matches("[a-zA-Z]{5}")) {
+                    if (motor.checkPalabra(entrada)) {
+                        contarLetrasCorrectas();
+                        checkFila(a11jLabel1_1, 0);
+                        checkFila(a12jLabel1_2, 1);
+                        checkFila(a13jLabel1_3, 2);
+                        checkFila(a14jLabel1_4, 3);
+                        checkFila(a15jLabel1_5, 4);
+                        contador++;
+                    } else {
+                        this.avisosjLabel1.setText("La palabra no existe");
+                    }
+                } else {
+                    this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                }
+                break;
+            case 1:
+                entrada = this.inputjTextField1.getText().toUpperCase();
+                if (entrada.matches("[a-zA-Z]{5}")) {
+                    if (motor.checkPalabra(entrada)) {
+                        contarLetrasCorrectas();
+                        checkFila(a21jLabel2_1, 0);
+                        checkFila(a22jLabel2_2, 1);
+                        checkFila(a23jLabel2_3, 2);
+                        checkFila(a24jLabel2_4, 3);
+                        checkFila(a25jLabel2_5, 4);
+                        contador++;
+                    } else {
+                        this.avisosjLabel1.setText("La palabra no existe");
+//                        JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+                    }
+                } else {
+                    this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+//                    JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+                }
+                break;
+            case 2:
+                entrada = this.inputjTextField1.getText().toUpperCase();
+                if (entrada.matches("[a-zA-Z]{5}")) {
+                    if (motor.checkPalabra(entrada)) {
+                        contarLetrasCorrectas();
+                        checkFila(a31jLabel3_1, 0);
+                        checkFila(a32jLabel3_2, 1);
+                        checkFila(a33jLabel3_3, 2);
+                        checkFila(a34jLabel3_4, 3);
+                        checkFila(a35jLabel3_5, 4);
+                        contador++;
+                    } else {
+                        this.avisosjLabel1.setText("La palabra no existe");
+                    }
+                } else {
+                        this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                }
+                break;
+            case 3:
+                entrada = this.inputjTextField1.getText().toUpperCase();
+                if (entrada.matches("[a-zA-Z]{5}")) {
+                    if (motor.checkPalabra(entrada)) {
+                        contarLetrasCorrectas();
+                        checkFila(a41jLabel4_1, 0);
+                        checkFila(a42jLabel4_2, 1);
+                        checkFila(a43jLabel4_3, 2);
+                        checkFila(a44jLabel4_4, 3);
+                        checkFila(a45jLabel4_5, 4);
+                        contador++;
+                    } else {
+                        this.avisosjLabel1.setText("La palabra no existe");
+                    }
+                } else {
+                      this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                }
+                break;
+            case 4:
+                entrada = this.inputjTextField1.getText().toUpperCase();
+                if (entrada.matches("[a-zA-Z]{5}")) {
+                    if (motor.checkPalabra(entrada)) {
+                        contarLetrasCorrectas();
+                        checkFila(a51jLabel5_1, 0);
+                        checkFila(a52jLabel5_2, 1);
+                        checkFila(a53jLabel5_3, 2);
+                        checkFila(a54jLabel5_4, 3);
+                        checkFila(a55jLabel5_5, 4);
+                        contador++;
+                    } else {
+                        this.avisosjLabel1.setText("La palabra no existe");
+                    }
+                } else {
+                    this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                }
+                break;
+            case 5:
+                entrada = this.inputjTextField1.getText().toUpperCase();
+                if (entrada.matches("[a-zA-Z]{5}")) {
+                    if (motor.checkPalabra(entrada)) {
+                        contarLetrasCorrectas();
+                        checkFila(a61jLabel6_1, 0);
+                        checkFila(a62jLabel6_2, 1);
+                        checkFila(a63jLabel6_3, 2);
+                        checkFila(a64jLabel6_4, 3);
+                        checkFila(a65jLabel6_5, 4);
+                        contador++;
+                    } else {
+                        this.avisosjLabel1.setText("La palabra no existe");
+                    }
+                } else {
+                        this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                }
+                break;
+            default:
+                break;
         }
-        
-        else if(contador==1){
-        entrada = this.inputjTextField1.getText().toUpperCase();
-        if(entrada.matches("[a-zA-Z]{5}")){
-            if(motor.checkPalabra(entrada)){
-                checkFila(a21jLabel2_1,0);
-                checkFila(a22jLabel2_2,1);
-                checkFila(a23jLabel2_3,2);
-                checkFila(a24jLabel2_4,3);
-                checkFila(a25jLabel2_5,4);
-          contador++;
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
-            }
-      }
-      else{
-          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
-      }
-        }
-        else if(contador==2){
-        entrada = this.inputjTextField1.getText().toUpperCase();
-        if(entrada.matches("[a-zA-Z]{5}")){
-            if(motor.checkPalabra(entrada)){
-                checkFila(a31jLabel3_1,0);
-                checkFila(a32jLabel3_2,1);
-                checkFila(a33jLabel3_3,2);
-                checkFila(a34jLabel3_4,3);
-                checkFila(a35jLabel3_5,4);
-          contador++;
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
-            }
-      }
-      else{
-          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
-      }
-        }
-        else if(contador==3){
-        entrada = this.inputjTextField1.getText().toUpperCase();
-        if(entrada.matches("[a-zA-Z]{5}")){
-            if(motor.checkPalabra(entrada)){
-                checkFila(a41jLabel4_1,0);
-                checkFila(a42jLabel4_2,1);
-                checkFila(a43jLabel4_3,2);
-                checkFila(a44jLabel4_4,3);
-                checkFila(a45jLabel4_5,4);
-          contador++;
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
-            }
-      }
-      else{
-          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
-      }
-        }
-        else if(contador==4){
-        entrada = this.inputjTextField1.getText().toUpperCase();
-        if(entrada.matches("[a-zA-Z]{5}")){
-            if(motor.checkPalabra(entrada)){
-                checkFila(a51jLabel5_1,0);
-                checkFila(a52jLabel5_2,1);
-                checkFila(a53jLabel5_3,2);
-                checkFila(a54jLabel5_4,3);
-                checkFila(a55jLabel5_5,4);
-          contador++;
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
-            }
-      }
-      else{
-          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
-      }
-        }
-        else if(contador==5){
-        entrada = this.inputjTextField1.getText().toUpperCase();
-        if(entrada.matches("[a-zA-Z]{5}")){
-            if(motor.checkPalabra(entrada)){
-          a61jLabel6_1.setText(entrada.charAt(0)+"");
-          a62jLabel6_2.setText(entrada.charAt(1)+"");
-          a63jLabel6_3.setText(entrada.charAt(2)+"");
-          a64jLabel6_4.setText(entrada.charAt(3)+"");
-          a65jLabel6_5.setText(entrada.charAt(4)+"");
-          contador++;
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
-            }
-      }
-      else{
-          JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
-      }
-        }
-        if(ganarJuego()){
+        if (ganarJuego()) {
             this.avisosjLabel1.setText("¡Ganaste!");
-            contador=6;
-        }
-        else{
-            System.out.println("¡Perdiste! La palabra era "+this.palabra);
+            contador = 7;
+        } else if (contador == 6) {
+            this.avisosjLabel1.setText("¡Perdiste! La palabra era " + this.palabra);
         }
     }//GEN-LAST:event_enviarjButton1ActionPerformed
 
@@ -792,42 +797,40 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel tecladojPanel;
     // End of variables declaration//GEN-END:variables
 
-private void checkFila(JLabel j,int numero_letra){
-    contarLetrasCorrectas();
-    if((entrada.charAt(numero_letra)+"").equalsIgnoreCase(palabra.charAt(numero_letra)+"")){
-              j.setText(entrada.charAt(numero_letra)+"");
-              j.setForeground(COLOR_VERDE);
-          }
-          else if((palabra).contains(entrada.charAt(numero_letra)+"")){
-              j.setText(entrada.charAt(numero_letra)+"");
-              if(letrasPorPalabra.get(entrada.charAt(numero_letra)+"")>0){
-              j.setForeground(COLOR_AMARILLO);
-              }
-              else{
-                  j.setForeground(COLOR_NEGRO);
-              }
-          }
-          else{
-              j.setText(entrada.charAt(numero_letra)+"");
-              j.setForeground(COLOR_NEGRO);
-          }
-}
-
-public boolean ganarJuego(){
-        return (entrada.charAt(0)+"").equalsIgnoreCase(palabra.charAt(0)+"")  && (entrada.charAt(1)+"").equalsIgnoreCase(palabra.charAt(1)+"") && (entrada.charAt(2)+"").equalsIgnoreCase(palabra.charAt(2)+"") && (entrada.charAt(3)+"").equalsIgnoreCase(palabra.charAt(3)+"") && (entrada.charAt(4)+"").equalsIgnoreCase(palabra.charAt(4)+"");
-}
-
-public void contarLetrasCorrectas(){
-    for (int i = 0; i < palabra.length(); i++) {
-            letrasPorPalabra.put(palabra.charAt(i)+"", letrasPorPalabra.get(palabra.charAt(i)+"")+1);
-    }
-    for (int i = 0; i < entrada.length(); i++) {
-        if((entrada.charAt(i)+"").equalsIgnoreCase(palabra.charAt(i)+"")){
-            letrasPorPalabra.put(palabra.charAt(i)+"", letrasPorPalabra.get(palabra.charAt(i)+"")-1);
+    private void checkFila(JLabel j, int numero_letra) {
+        if ((entrada.charAt(numero_letra) + "").equalsIgnoreCase(palabra.charAt(numero_letra) + "")) {
+            j.setText(entrada.charAt(numero_letra) + "");
+            j.setForeground(COLOR_VERDE);
+        } else if ((palabra).contains(entrada.charAt(numero_letra) + "")) {
+            j.setText(entrada.charAt(numero_letra) + "");
+            if (letrasPorPalabra.get(entrada.charAt(numero_letra)) != 0) {
+                j.setForeground(COLOR_AMARILLO);
+            } else {
+                j.setForeground(COLOR_ROJO);
+            }
+        } else {
+            j.setText(entrada.charAt(numero_letra) + "");
+            j.setForeground(COLOR_ROJO);
         }
     }
-}
+
+    public boolean ganarJuego() {
+        return (entrada.charAt(0) + "").equalsIgnoreCase(palabra.charAt(0) + "") && (entrada.charAt(1) + "").equalsIgnoreCase(palabra.charAt(1) + "") && (entrada.charAt(2) + "").equalsIgnoreCase(palabra.charAt(2) + "") && (entrada.charAt(3) + "").equalsIgnoreCase(palabra.charAt(3) + "") && (entrada.charAt(4) + "").equalsIgnoreCase(palabra.charAt(4) + "");
+    }
+
+    public void contarLetrasCorrectas() {
+        for (int i = 0; i < palabra.length(); i++) {//contar cuantas letras de cada hay en la palabra
+            if (!letrasPorPalabra.containsKey(palabra.charAt(i))) {
+                letrasPorPalabra.put(palabra.charAt(i), 1);
+            } else {
+                letrasPorPalabra.put(palabra.charAt(i), (letrasPorPalabra.get(palabra.charAt(i))) + 1);
+            }
+        }
+        for (int i = 0; i < entrada.length(); i++) {//contar cuantas letras estan bien colocadas 
+            if ((entrada.charAt(i) + "").equalsIgnoreCase(palabra.charAt(i) + "")) {
+                letrasPorPalabra.put(palabra.charAt(i), (letrasPorPalabra.get(palabra.charAt(i))) - 1);
+            }
+        }
+    }
 
 }
-
-

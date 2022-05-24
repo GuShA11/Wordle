@@ -15,23 +15,17 @@ public class MotorTest implements IMotorWordle{
      private List<String> nombre;
 
     public MotorTest() {
-        String[] nombres = {"ismae", "samue", "anxoa", "jorge", "gonca", "juana", "marco", "franc", "danie", "xurxo", "aaron", "breix", "alexa", "adria", "silvi", "josea"};
-        this.nombre= new java.util.ArrayList<>();
-        for (String n : nombres) {
-            this.nombre.add(n);
-        }
 
     }
 
     @Override
     public boolean checkPalabra(String string) {
-            return nombre.contains(string.toLowerCase());
+            return true;
 
     }
 
     @Override
     public String obtenerPalabraAleatoria() {
-        java.util.Random generador = new java.util.Random();
-        return new String(nombre.get(generador.nextInt(nombre.size())));
+        return "ANXOA";
     }
 }

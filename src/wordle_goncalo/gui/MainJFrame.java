@@ -4,6 +4,8 @@
  */
 package wordle_goncalo.gui;
 import java.awt.Color;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -16,7 +18,8 @@ public class MainJFrame extends javax.swing.JFrame {
     
     String mensaje;
 
-    private int contador=0;//contador para saber en que palabra voy
+    private Map<String,Integer> letrasPorPalabra;
+    private int contador=0;//contador para saber con que fila estoy trabajando
     private IMotorWordle motor;
     private String palabra;
     private String entrada;
@@ -25,20 +28,22 @@ public class MainJFrame extends javax.swing.JFrame {
     private static final java.awt.Color COLOR_AMARILLO = Color.YELLOW;//new java.awt.Color(255,255,102);
     /**
      * Creates new form MainJFrame
+     * @param motor
      */
     public MainJFrame(IMotorWordle motor) {
         initComponents();
+        this.letrasPorPalabra= new LinkedHashMap<>();
         this.motor=motor;
-        this.palabra=motor.obtenerPalabraAleatoria().toUpperCase();
+        this.palabra=motor.obtenerPalabraAleatoria();
         
     }
     public MainJFrame() {
         initComponents();
+        this.letrasPorPalabra= new LinkedHashMap<>();
         this.motor=new MotorTest();
-        this.palabra=motor.obtenerPalabraAleatoria().toUpperCase();
+        this.palabra=motor.obtenerPalabraAleatoria();
         
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -555,8 +560,8 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_1ActionPerformed
 
     private void enviarjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarjButton1ActionPerformed
-        if(contador==0){
-        entrada = this.inputjTextField1.getText().toUpperCase();
+       if(contador==0){
+        entrada = this.inputjTextField1.getText();
         if(entrada.matches("[a-zA-Z]{5}")){
             if(motor.checkPalabra(entrada)){
                 checkFila(a11jLabel1_1,0);
@@ -574,6 +579,7 @@ public class MainJFrame extends javax.swing.JFrame {
             this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
       }
         }
+        
         else if(contador==1){
         entrada = this.inputjTextField1.getText().toUpperCase();
         if(entrada.matches("[a-zA-Z]{5}")){
@@ -669,8 +675,12 @@ public class MainJFrame extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
       }
         }
+        if(ganarJuego()){
+            this.avisosjLabel1.setText("¡Ganaste!");
+            contador=6;
+        }
         else{
-            System.out.println("ACABASTE");
+            System.out.println("¡Perdiste! La palabra era "+this.palabra);
         }
     }//GEN-LAST:event_enviarjButton1ActionPerformed
 
@@ -783,18 +793,39 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 private void checkFila(JLabel j,int numero_letra){
+    contarLetrasCorrectas();
     if((entrada.charAt(numero_letra)+"").equalsIgnoreCase(palabra.charAt(numero_letra)+"")){
               j.setText(entrada.charAt(numero_letra)+"");
               j.setForeground(COLOR_VERDE);
           }
           else if((palabra).contains(entrada.charAt(numero_letra)+"")){
               j.setText(entrada.charAt(numero_letra)+"");
+              if(letrasPorPalabra.get(entrada.charAt(numero_letra)+"")>0){
               j.setForeground(COLOR_AMARILLO);
+              }
+              else{
+                  j.setForeground(COLOR_NEGRO);
+              }
           }
           else{
               j.setText(entrada.charAt(numero_letra)+"");
               j.setForeground(COLOR_NEGRO);
           }
+}
+
+public boolean ganarJuego(){
+        return (entrada.charAt(0)+"").equalsIgnoreCase(palabra.charAt(0)+"")  && (entrada.charAt(1)+"").equalsIgnoreCase(palabra.charAt(1)+"") && (entrada.charAt(2)+"").equalsIgnoreCase(palabra.charAt(2)+"") && (entrada.charAt(3)+"").equalsIgnoreCase(palabra.charAt(3)+"") && (entrada.charAt(4)+"").equalsIgnoreCase(palabra.charAt(4)+"");
+}
+
+public void contarLetrasCorrectas(){
+    for (int i = 0; i < palabra.length(); i++) {
+            letrasPorPalabra.put(palabra.charAt(i)+"", letrasPorPalabra.get(palabra.charAt(i)+"")+1);
+    }
+    for (int i = 0; i < entrada.length(); i++) {
+        if((entrada.charAt(i)+"").equalsIgnoreCase(palabra.charAt(i)+"")){
+            letrasPorPalabra.put(palabra.charAt(i)+"", letrasPorPalabra.get(palabra.charAt(i)+"")-1);
+        }
+    }
 }
 
 }

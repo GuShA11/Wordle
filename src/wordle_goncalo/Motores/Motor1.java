@@ -9,7 +9,6 @@ package wordle_goncalo.Motores;
  * @author Gonçalo
  */
 import java.util.List;
-import wordle_goncalo.classes.IMotorWordle;
 
 /**
  *
@@ -36,6 +35,6 @@ public class Motor1 implements IMotorWordle {
     @Override
     public String obtenerPalabraAleatoria() {
         java.util.Random generador = new java.util.Random();
-        return new String(nombre.get(generador.nextInt(nombre.size())));
+        return nombre.get(generador.nextInt(nombre.size()));
     }
 }

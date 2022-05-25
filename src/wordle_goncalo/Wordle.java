@@ -5,13 +5,13 @@
 package wordle_goncalo;
 
 import wordle_goncalo.gui.MainJFrame;
-import wordle_goncalo.classes.IMotorWordle.*;
+import wordle_goncalo.Motores.IMotorWordle.*;
 /**
  *
  * @author Gonçalo
  */
 public class Wordle {
-    public static void lanzar(wordle_goncalo.classes.IMotorWordle motor){
+    public static void lanzar(wordle_goncalo.Motores.IMotorWordle motor){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame(motor).setVisible(true);

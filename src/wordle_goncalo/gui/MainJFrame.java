@@ -4,13 +4,15 @@
  */
 package wordle_goncalo.gui;
 
+import wordle_goncalo.Motores.MotorTest;
+import wordle_goncalo.Motores.IMotorWordle;
 import java.awt.Color;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import wordle_goncalo.classes.*;
 
 /**
  *
@@ -19,12 +21,12 @@ import wordle_goncalo.classes.*;
 public class MainJFrame extends javax.swing.JFrame {
 
     String mensaje;
-
     private Map<Character, Integer> letrasPorPalabra;
     private int contador = 0;//contador para saber con que fila estoy trabajando
     private IMotorWordle motor;
     private String palabra;
     private String entrada;
+    
     private static final java.awt.Color COLOR_ROJO = Color.RED;//new java.awt.Color(64,64,64);
     private static final java.awt.Color COLOR_VERDE = new java.awt.Color(51, 255, 51);
     private static final java.awt.Color COLOR_AMARILLO = Color.YELLOW;//new java.awt.Color(255,255,102);
@@ -65,34 +67,34 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         tecladojPanel = new javax.swing.JPanel();
         DosFilasTecladojPanel3 = new javax.swing.JPanel();
-        jButton1_1 = new javax.swing.JButton();
-        jButton1_2 = new javax.swing.JButton();
-        jButton1_3 = new javax.swing.JButton();
-        jButton1_4 = new javax.swing.JButton();
-        jButton1_5 = new javax.swing.JButton();
-        jButton1_6 = new javax.swing.JButton();
-        jButton1_7 = new javax.swing.JButton();
-        jButton1_8 = new javax.swing.JButton();
-        jButton1_9 = new javax.swing.JButton();
-        jButton1_10 = new javax.swing.JButton();
-        jButton2_1 = new javax.swing.JButton();
-        jButton2_2 = new javax.swing.JButton();
-        jButton2_3 = new javax.swing.JButton();
-        jButton2_4 = new javax.swing.JButton();
-        jButton2_5 = new javax.swing.JButton();
-        jButton2_6 = new javax.swing.JButton();
-        jButton2_7 = new javax.swing.JButton();
-        jButton2_8 = new javax.swing.JButton();
-        jButton2_9 = new javax.swing.JButton();
-        jButton2_10 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        qjButton1_1 = new javax.swing.JButton();
+        wjButton1_2 = new javax.swing.JButton();
+        ejButton1_3 = new javax.swing.JButton();
+        rjButton1_4 = new javax.swing.JButton();
+        tjButton1_5 = new javax.swing.JButton();
+        yjButton1_6 = new javax.swing.JButton();
+        ujButton1_7 = new javax.swing.JButton();
+        ijButton1_8 = new javax.swing.JButton();
+        ojButton1_9 = new javax.swing.JButton();
+        pjButton1_10 = new javax.swing.JButton();
+        ajButton2_1 = new javax.swing.JButton();
+        sjButton2_2 = new javax.swing.JButton();
+        djButton2_3 = new javax.swing.JButton();
+        fjButton2_4 = new javax.swing.JButton();
+        gjButton2_5 = new javax.swing.JButton();
+        hjButton2_6 = new javax.swing.JButton();
+        jjButton2_7 = new javax.swing.JButton();
+        kjButton2_8 = new javax.swing.JButton();
+        ljButton2_9 = new javax.swing.JButton();
+        nnjButton2_10 = new javax.swing.JButton();
+        zjButton1 = new javax.swing.JButton();
+        xjButton2 = new javax.swing.JButton();
+        cjButton3 = new javax.swing.JButton();
+        vjButton4 = new javax.swing.JButton();
+        bjButton5 = new javax.swing.JButton();
+        njButton6 = new javax.swing.JButton();
+        mjButton7 = new javax.swing.JButton();
+        BorrarjButton8 = new javax.swing.JButton();
         nombrejLabel1 = new javax.swing.JLabel();
         letrasjPanel2 = new javax.swing.JPanel();
         a11jLabel1_1 = new javax.swing.JLabel();
@@ -137,100 +139,220 @@ public class MainJFrame extends javax.swing.JFrame {
 
         DosFilasTecladojPanel3.setLayout(new java.awt.GridLayout(2, 10));
 
-        jButton1_1.setText("Q");
-        jButton1_1.setMaximumSize(new java.awt.Dimension(24, 24));
-        jButton1_1.addActionListener(new java.awt.event.ActionListener() {
+        qjButton1_1.setText("Q");
+        qjButton1_1.setMaximumSize(new java.awt.Dimension(24, 24));
+        qjButton1_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_1ActionPerformed(evt);
+                qjButton1_1ActionPerformed(evt);
             }
         });
-        DosFilasTecladojPanel3.add(jButton1_1);
+        DosFilasTecladojPanel3.add(qjButton1_1);
 
-        jButton1_2.setText("W");
-        DosFilasTecladojPanel3.add(jButton1_2);
-
-        jButton1_3.setText("E");
-        DosFilasTecladojPanel3.add(jButton1_3);
-
-        jButton1_4.setText("R");
-        DosFilasTecladojPanel3.add(jButton1_4);
-
-        jButton1_5.setText("T");
-        DosFilasTecladojPanel3.add(jButton1_5);
-
-        jButton1_6.setText("Y");
-        DosFilasTecladojPanel3.add(jButton1_6);
-
-        jButton1_7.setText("U");
-        DosFilasTecladojPanel3.add(jButton1_7);
-
-        jButton1_8.setText("I");
-        DosFilasTecladojPanel3.add(jButton1_8);
-
-        jButton1_9.setText("O");
-        DosFilasTecladojPanel3.add(jButton1_9);
-
-        jButton1_10.setText("P");
-        DosFilasTecladojPanel3.add(jButton1_10);
-
-        jButton2_1.setText("A");
-        DosFilasTecladojPanel3.add(jButton2_1);
-
-        jButton2_2.setText("S");
-        DosFilasTecladojPanel3.add(jButton2_2);
-
-        jButton2_3.setText("D");
-        DosFilasTecladojPanel3.add(jButton2_3);
-
-        jButton2_4.setText("F");
-        DosFilasTecladojPanel3.add(jButton2_4);
-
-        jButton2_5.setText("G");
-        DosFilasTecladojPanel3.add(jButton2_5);
-
-        jButton2_6.setText("H");
-        DosFilasTecladojPanel3.add(jButton2_6);
-
-        jButton2_7.setText("J");
-        DosFilasTecladojPanel3.add(jButton2_7);
-
-        jButton2_8.setText("K");
-        DosFilasTecladojPanel3.add(jButton2_8);
-
-        jButton2_9.setText("L");
-        DosFilasTecladojPanel3.add(jButton2_9);
-
-        jButton2_10.setText("Ñ");
-        DosFilasTecladojPanel3.add(jButton2_10);
-
-        jButton1.setText("Z");
-
-        jButton2.setText("X");
-
-        jButton3.setText("C");
-
-        jButton4.setText("V");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        wjButton1_2.setText("W");
+        wjButton1_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                wjButton1_2ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(wjButton1_2);
+
+        ejButton1_3.setText("E");
+        ejButton1_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ejButton1_3ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(ejButton1_3);
+
+        rjButton1_4.setText("R");
+        rjButton1_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rjButton1_4ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(rjButton1_4);
+
+        tjButton1_5.setText("T");
+        tjButton1_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tjButton1_5ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(tjButton1_5);
+
+        yjButton1_6.setText("Y");
+        yjButton1_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yjButton1_6ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(yjButton1_6);
+
+        ujButton1_7.setText("U");
+        ujButton1_7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ujButton1_7ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(ujButton1_7);
+
+        ijButton1_8.setText("I");
+        ijButton1_8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ijButton1_8ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(ijButton1_8);
+
+        ojButton1_9.setText("O");
+        ojButton1_9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ojButton1_9ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(ojButton1_9);
+
+        pjButton1_10.setText("P");
+        pjButton1_10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pjButton1_10ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(pjButton1_10);
+
+        ajButton2_1.setText("A");
+        ajButton2_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajButton2_1ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(ajButton2_1);
+
+        sjButton2_2.setText("S");
+        sjButton2_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sjButton2_2ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(sjButton2_2);
+
+        djButton2_3.setText("D");
+        djButton2_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                djButton2_3ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(djButton2_3);
+
+        fjButton2_4.setText("F");
+        fjButton2_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fjButton2_4ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(fjButton2_4);
+
+        gjButton2_5.setText("G");
+        gjButton2_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gjButton2_5ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(gjButton2_5);
+
+        hjButton2_6.setText("H");
+        hjButton2_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hjButton2_6ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(hjButton2_6);
+
+        jjButton2_7.setText("J");
+        jjButton2_7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jjButton2_7ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(jjButton2_7);
+
+        kjButton2_8.setText("K");
+        kjButton2_8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kjButton2_8ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(kjButton2_8);
+
+        ljButton2_9.setText("L");
+        ljButton2_9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ljButton2_9ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(ljButton2_9);
+
+        nnjButton2_10.setText("Ñ");
+        nnjButton2_10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nnjButton2_10ActionPerformed(evt);
+            }
+        });
+        DosFilasTecladojPanel3.add(nnjButton2_10);
+
+        zjButton1.setText("Z");
+        zjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zjButton1ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("B");
-
-        jButton6.setText("N");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        xjButton2.setText("X");
+        xjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                xjButton2ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("M");
-
-        jButton8.setText("Borrar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        cjButton3.setText("C");
+        cjButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                cjButton3ActionPerformed(evt);
+            }
+        });
+
+        vjButton4.setText("V");
+        vjButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vjButton4ActionPerformed(evt);
+            }
+        });
+
+        bjButton5.setText("B");
+        bjButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bjButton5ActionPerformed(evt);
+            }
+        });
+
+        njButton6.setText("N");
+        njButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                njButton6ActionPerformed(evt);
+            }
+        });
+
+        mjButton7.setText("M");
+        mjButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mjButton7ActionPerformed(evt);
+            }
+        });
+
+        BorrarjButton8.setText("Borrar");
+        BorrarjButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarjButton8ActionPerformed(evt);
             }
         });
 
@@ -238,26 +360,27 @@ public class MainJFrame extends javax.swing.JFrame {
         tecladojPanel.setLayout(tecladojPanelLayout);
         tecladojPanelLayout.setHorizontalGroup(
             tecladojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tecladojPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(tecladojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(tecladojPanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(tecladojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DosFilasTecladojPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tecladojPanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton2)
+                        .addComponent(zjButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton3)
+                        .addComponent(xjButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton4)
+                        .addComponent(cjButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton5)
+                        .addComponent(vjButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton6)
+                        .addComponent(bjButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton7)
+                        .addComponent(njButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(mjButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                        .addGap(0, 0, 0)
+                        .addComponent(BorrarjButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         tecladojPanelLayout.setVerticalGroup(
@@ -265,19 +388,19 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(tecladojPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(DosFilasTecladojPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(tecladojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tecladojPanelLayout.createSequentialGroup()
                         .addGroup(tecladojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7))
+                            .addComponent(zjButton1)
+                            .addComponent(xjButton2)
+                            .addComponent(cjButton3)
+                            .addComponent(vjButton4)
+                            .addComponent(bjButton5)
+                            .addComponent(njButton6)
+                            .addComponent(mjButton7))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BorrarjButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -550,27 +673,35 @@ public class MainJFrame extends javax.swing.JFrame {
         //this.inputjTextField1
     }//GEN-LAST:event_inputjTextField1ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void BorrarjButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarjButton8ActionPerformed
+    entrada = this.inputjTextField1.getText();
+    if(entrada.length()>=1){
+        StringBuilder sb = new StringBuilder(entrada);
+        sb.deleteCharAt(entrada.length()-1);
+     this.inputjTextField1.setText(sb.toString());
+    }
+    }//GEN-LAST:event_BorrarjButton8ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void njButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_njButton6ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"N");
+    }//GEN-LAST:event_njButton6ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void vjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vjButton4ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"N");
+    }//GEN-LAST:event_vjButton4ActionPerformed
 
-    private void jButton1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1_1ActionPerformed
+    private void qjButton1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qjButton1_1ActionPerformed
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada+"Q");
+    }//GEN-LAST:event_qjButton1_1ActionPerformed
 
     private void enviarjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarjButton1ActionPerformed
         switch (contador) {
             case 0:
                 entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[a-zA-Z]{5}")) {
+                if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
                         contarLetrasCorrectas();
                         checkFila(a11jLabel1_1, 0);
@@ -581,14 +712,16 @@ public class MainJFrame extends javax.swing.JFrame {
                         contador++;
                     } else {
                         this.avisosjLabel1.setText("La palabra no existe");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                     }
                 } else {
                     this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                    this.avisosjLabel1.setForeground(COLOR_ROJO);
                 }
                 break;
             case 1:
                 entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[a-zA-Z]{5}")) {
+                if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
                         contarLetrasCorrectas();
                         checkFila(a21jLabel2_1, 0);
@@ -599,16 +732,16 @@ public class MainJFrame extends javax.swing.JFrame {
                         contador++;
                     } else {
                         this.avisosjLabel1.setText("La palabra no existe");
-//                        JOptionPane.showMessageDialog(this, "¡La palabra no existe!");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                     }
                 } else {
                     this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-//                    JOptionPane.showMessageDialog(this, "¡La palabra debe estar compuesta por 5 letras!");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                 }
                 break;
             case 2:
                 entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[a-zA-Z]{5}")) {
+                if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
                         contarLetrasCorrectas();
                         checkFila(a31jLabel3_1, 0);
@@ -619,14 +752,16 @@ public class MainJFrame extends javax.swing.JFrame {
                         contador++;
                     } else {
                         this.avisosjLabel1.setText("La palabra no existe");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                     }
                 } else {
                         this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                 }
                 break;
             case 3:
                 entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[a-zA-Z]{5}")) {
+                if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
                         contarLetrasCorrectas();
                         checkFila(a41jLabel4_1, 0);
@@ -637,14 +772,16 @@ public class MainJFrame extends javax.swing.JFrame {
                         contador++;
                     } else {
                         this.avisosjLabel1.setText("La palabra no existe");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                     }
                 } else {
                       this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                      this.avisosjLabel1.setForeground(COLOR_ROJO);
                 }
                 break;
             case 4:
                 entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[a-zA-Z]{5}")) {
+                if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
                         contarLetrasCorrectas();
                         checkFila(a51jLabel5_1, 0);
@@ -655,14 +792,16 @@ public class MainJFrame extends javax.swing.JFrame {
                         contador++;
                     } else {
                         this.avisosjLabel1.setText("La palabra no existe");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                     }
                 } else {
                     this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                    this.avisosjLabel1.setForeground(COLOR_ROJO);
                 }
                 break;
             case 5:
                 entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[a-zA-Z]{5}")) {
+                if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
                         contarLetrasCorrectas();
                         checkFila(a61jLabel6_1, 0);
@@ -673,9 +812,11 @@ public class MainJFrame extends javax.swing.JFrame {
                         contador++;
                     } else {
                         this.avisosjLabel1.setText("La palabra no existe");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                     }
                 } else {
                         this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+                        this.avisosjLabel1.setForeground(COLOR_ROJO);
                 }
                 break;
             default:
@@ -683,11 +824,133 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         if (ganarJuego()) {
             this.avisosjLabel1.setText("¡Ganaste!");
+            this.avisosjLabel1.setForeground(COLOR_VERDE);
             contador = 7;
         } else if (contador == 6) {
             this.avisosjLabel1.setText("¡Perdiste! La palabra era " + this.palabra);
+            this.avisosjLabel1.setForeground(COLOR_ROJO);
         }
     }//GEN-LAST:event_enviarjButton1ActionPerformed
+
+    private void wjButton1_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wjButton1_2ActionPerformed
+       entrada = this.inputjTextField1.getText();
+       this.inputjTextField1.setText(entrada+"W");
+    }//GEN-LAST:event_wjButton1_2ActionPerformed
+
+    private void ejButton1_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ejButton1_3ActionPerformed
+      entrada = this.inputjTextField1.getText();
+      this.inputjTextField1.setText(entrada+"E");
+    }//GEN-LAST:event_ejButton1_3ActionPerformed
+
+    private void rjButton1_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rjButton1_4ActionPerformed
+     entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"R");
+    }//GEN-LAST:event_rjButton1_4ActionPerformed
+
+    private void tjButton1_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tjButton1_5ActionPerformed
+     entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"T");
+    }//GEN-LAST:event_tjButton1_5ActionPerformed
+
+    private void yjButton1_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yjButton1_6ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"Y");
+    }//GEN-LAST:event_yjButton1_6ActionPerformed
+
+    private void ujButton1_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ujButton1_7ActionPerformed
+     entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"U");
+    }//GEN-LAST:event_ujButton1_7ActionPerformed
+
+    private void ijButton1_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ijButton1_8ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"I");
+    }//GEN-LAST:event_ijButton1_8ActionPerformed
+
+    private void ojButton1_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ojButton1_9ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"O");
+    }//GEN-LAST:event_ojButton1_9ActionPerformed
+
+    private void pjButton1_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pjButton1_10ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"P");
+    }//GEN-LAST:event_pjButton1_10ActionPerformed
+
+    private void ajButton2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajButton2_1ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"A");
+    }//GEN-LAST:event_ajButton2_1ActionPerformed
+
+    private void sjButton2_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sjButton2_2ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"S");
+    }//GEN-LAST:event_sjButton2_2ActionPerformed
+
+    private void djButton2_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_djButton2_3ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"D");
+    }//GEN-LAST:event_djButton2_3ActionPerformed
+
+    private void fjButton2_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fjButton2_4ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"F");
+    }//GEN-LAST:event_fjButton2_4ActionPerformed
+
+    private void gjButton2_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gjButton2_5ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"G");
+    }//GEN-LAST:event_gjButton2_5ActionPerformed
+
+    private void hjButton2_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hjButton2_6ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"H");
+    }//GEN-LAST:event_hjButton2_6ActionPerformed
+
+    private void jjButton2_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jjButton2_7ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"J");
+    }//GEN-LAST:event_jjButton2_7ActionPerformed
+
+    private void kjButton2_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kjButton2_8ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"K");
+    }//GEN-LAST:event_kjButton2_8ActionPerformed
+
+    private void ljButton2_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ljButton2_9ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"L");
+    }//GEN-LAST:event_ljButton2_9ActionPerformed
+
+    private void nnjButton2_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nnjButton2_10ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"Ñ");
+    }//GEN-LAST:event_nnjButton2_10ActionPerformed
+
+    private void zjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zjButton1ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"Z");
+    }//GEN-LAST:event_zjButton1ActionPerformed
+
+    private void xjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xjButton2ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"X");
+    }//GEN-LAST:event_xjButton2ActionPerformed
+
+    private void cjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cjButton3ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"C");
+    }//GEN-LAST:event_cjButton3ActionPerformed
+
+    private void bjButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjButton5ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"B");
+    }//GEN-LAST:event_bjButton5ActionPerformed
+
+    private void mjButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mjButton7ActionPerformed
+    entrada = this.inputjTextField1.getText();
+     this.inputjTextField1.setText(entrada+"M");
+    }//GEN-LAST:event_mjButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -725,6 +988,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BorrarjButton8;
     private javax.swing.JPanel DosFilasTecladojPanel3;
     private javax.swing.JPanel MainjPanel;
     private javax.swing.JLabel a11jLabel1_1;
@@ -757,65 +1021,82 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel a63jLabel6_3;
     private javax.swing.JLabel a64jLabel6_4;
     private javax.swing.JLabel a65jLabel6_5;
+    private javax.swing.JButton ajButton2_1;
     private javax.swing.JMenu archivojMenu1;
     private javax.swing.JLabel avisosjLabel1;
+    private javax.swing.JButton bjButton5;
+    private javax.swing.JButton cjButton3;
+    private javax.swing.JButton djButton2_3;
+    private javax.swing.JButton ejButton1_3;
     private javax.swing.JButton enviarjButton1;
+    private javax.swing.JButton fjButton2_4;
+    private javax.swing.JButton gjButton2_5;
+    private javax.swing.JButton hjButton2_6;
+    private javax.swing.JButton ijButton1_8;
     private javax.swing.JTextField inputjTextField1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton1_1;
-    private javax.swing.JButton jButton1_10;
-    private javax.swing.JButton jButton1_2;
-    private javax.swing.JButton jButton1_3;
-    private javax.swing.JButton jButton1_4;
-    private javax.swing.JButton jButton1_5;
-    private javax.swing.JButton jButton1_6;
-    private javax.swing.JButton jButton1_7;
-    private javax.swing.JButton jButton1_8;
-    private javax.swing.JButton jButton1_9;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton2_1;
-    private javax.swing.JButton jButton2_10;
-    private javax.swing.JButton jButton2_2;
-    private javax.swing.JButton jButton2_3;
-    private javax.swing.JButton jButton2_4;
-    private javax.swing.JButton jButton2_5;
-    private javax.swing.JButton jButton2_6;
-    private javax.swing.JButton jButton2_7;
-    private javax.swing.JButton jButton2_8;
-    private javax.swing.JButton jButton2_9;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jjButton2_7;
+    private javax.swing.JButton kjButton2_8;
     private javax.swing.JPanel letrasjPanel2;
+    private javax.swing.JButton ljButton2_9;
+    private javax.swing.JButton mjButton7;
     private javax.swing.JMenu motoresjMenu2;
+    private javax.swing.JButton njButton6;
+    private javax.swing.JButton nnjButton2_10;
     private javax.swing.JLabel nombrejLabel1;
+    private javax.swing.JButton ojButton1_9;
+    private javax.swing.JButton pjButton1_10;
+    private javax.swing.JButton qjButton1_1;
+    private javax.swing.JButton rjButton1_4;
+    private javax.swing.JButton sjButton2_2;
     private javax.swing.JPanel tecladojPanel;
+    private javax.swing.JButton tjButton1_5;
+    private javax.swing.JButton ujButton1_7;
+    private javax.swing.JButton vjButton4;
+    private javax.swing.JButton wjButton1_2;
+    private javax.swing.JButton xjButton2;
+    private javax.swing.JButton yjButton1_6;
+    private javax.swing.JButton zjButton1;
     // End of variables declaration//GEN-END:variables
 
     private void checkFila(JLabel j, int numero_letra) {
         if ((entrada.charAt(numero_letra) + "").equalsIgnoreCase(palabra.charAt(numero_letra) + "")) {
             j.setText(entrada.charAt(numero_letra) + "");
             j.setForeground(COLOR_VERDE);
+            pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_VERDE);
+            
         } else if ((palabra).contains(entrada.charAt(numero_letra) + "")) {
             j.setText(entrada.charAt(numero_letra) + "");
             if (letrasPorPalabra.get(entrada.charAt(numero_letra)) != 0) {
                 j.setForeground(COLOR_AMARILLO);
+                if(pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_VERDE){
+                    pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_AMARILLO);
+                }
+                letrasPorPalabra.put(entrada.charAt(numero_letra), letrasPorPalabra.get(entrada.charAt(numero_letra))-1);
             } else {
                 j.setForeground(COLOR_ROJO);
+                if(pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_VERDE && pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_AMARILLO){
+                    pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_ROJO);
+                }
             }
         } else {
             j.setText(entrada.charAt(numero_letra) + "");
             j.setForeground(COLOR_ROJO);
+            if(pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_VERDE && pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_AMARILLO){
+                    pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_ROJO);
+                }
         }
     }
 
     public boolean ganarJuego() {
-        return (entrada.charAt(0) + "").equalsIgnoreCase(palabra.charAt(0) + "") && (entrada.charAt(1) + "").equalsIgnoreCase(palabra.charAt(1) + "") && (entrada.charAt(2) + "").equalsIgnoreCase(palabra.charAt(2) + "") && (entrada.charAt(3) + "").equalsIgnoreCase(palabra.charAt(3) + "") && (entrada.charAt(4) + "").equalsIgnoreCase(palabra.charAt(4) + "");
+        if (entrada.matches("[a-zA-Z]{5}")) {
+                    return (entrada.charAt(0) + "").equalsIgnoreCase(palabra.charAt(0) + "") && (entrada.charAt(1) + "").equalsIgnoreCase(palabra.charAt(1) + "") && (entrada.charAt(2) + "").equalsIgnoreCase(palabra.charAt(2) + "") && (entrada.charAt(3) + "").equalsIgnoreCase(palabra.charAt(3) + "") && (entrada.charAt(4) + "").equalsIgnoreCase(palabra.charAt(4) + "");
+        }
+        else{
+            return false;
+        }
+        
     }
 
     public void contarLetrasCorrectas() {
@@ -831,6 +1112,16 @@ public class MainJFrame extends javax.swing.JFrame {
                 letrasPorPalabra.put(palabra.charAt(i), (letrasPorPalabra.get(palabra.charAt(i))) - 1);
             }
         }
+    }
+    
+    public JButton pintarTeclado(String c) {
+        JButton[] botones = {qjButton1_1, wjButton1_2, ejButton1_3, rjButton1_4, tjButton1_5, yjButton1_6, ujButton1_7, ijButton1_8, ojButton1_9, pjButton1_10, ajButton2_1, sjButton2_2, djButton2_3, fjButton2_4, gjButton2_5, hjButton2_6, jjButton2_7, kjButton2_8, ljButton2_9, nnjButton2_10, zjButton1, xjButton2, cjButton3, vjButton4, bjButton5, njButton6, mjButton7};
+        for (JButton boton : botones) {
+            if (((boton.getText())).equalsIgnoreCase(c)) {
+                return boton;
+            }
+        }
+        return null;
     }
 
 }

@@ -13,4 +13,8 @@ public interface IMotorWordle {
     public boolean checkPalabra(String string);
 
     public String obtenerPalabraAleatoria();
+    
+    public boolean anadirPalabra(String string);
+    
+    public boolean removePalabra(String string);
 }

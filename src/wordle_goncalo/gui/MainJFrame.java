@@ -4,15 +4,16 @@
  */
 package wordle_goncalo.gui;
 
-import wordle_goncalo.Motores.MotorTest;
+import wordle_goncalo.Motores.*;
 import wordle_goncalo.Motores.IMotorWordle;
 import java.awt.Color;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import wordle_goncalo.Motores.MotorFichero;
 
 /**
  *
@@ -30,6 +31,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private static final java.awt.Color COLOR_ROJO = Color.RED;//new java.awt.Color(64,64,64);
     private static final java.awt.Color COLOR_VERDE = new java.awt.Color(51, 255, 51);
     private static final java.awt.Color COLOR_AMARILLO = Color.YELLOW;//new java.awt.Color(255,255,102);
+    
+    public static final File file = new File(Path.of(".") + File.separator + "data" + File.separator + "archivo.txt");
 
     /**
      * Creates new form MainJFrame
@@ -41,8 +44,6 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         this.motor = motor;
         this.palabra = motor.obtenerPalabraAleatoria().toUpperCase();
-//        contarLetrasCorrectas();
-
     }
 
     public MainJFrame() {
@@ -50,8 +51,6 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         this.motor = new MotorTest();
         this.palabra = motor.obtenerPalabraAleatoria().toUpperCase();
-//        contarLetrasCorrectas();
-
     }
 
     /**
@@ -132,6 +131,7 @@ public class MainJFrame extends javax.swing.JFrame {
         avisosjLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         archivojMenu1 = new javax.swing.JMenu();
+        reiniciarjMenuItem1 = new javax.swing.JMenuItem();
         motoresjMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -642,6 +642,15 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         archivojMenu1.setText("Archivo");
+
+        reiniciarjMenuItem1.setText("Nueva Partida");
+        reiniciarjMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reiniciarjMenuItem1ActionPerformed(evt);
+            }
+        });
+        archivojMenu1.add(reiniciarjMenuItem1);
+
         jMenuBar1.add(archivojMenu1);
 
         motoresjMenu2.setText("Motores");
@@ -703,6 +712,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 entrada = this.inputjTextField1.getText().toUpperCase();
                 if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
+                        this.avisosjLabel1.setText("");
                         contarLetrasCorrectas();
                         checkFila(a11jLabel1_1, 0);
                         checkFila(a12jLabel1_2, 1);
@@ -723,6 +733,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 entrada = this.inputjTextField1.getText().toUpperCase();
                 if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
+                        this.avisosjLabel1.setText("");
                         contarLetrasCorrectas();
                         checkFila(a21jLabel2_1, 0);
                         checkFila(a22jLabel2_2, 1);
@@ -743,6 +754,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 entrada = this.inputjTextField1.getText().toUpperCase();
                 if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
+                        this.avisosjLabel1.setText("");
                         contarLetrasCorrectas();
                         checkFila(a31jLabel3_1, 0);
                         checkFila(a32jLabel3_2, 1);
@@ -763,6 +775,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 entrada = this.inputjTextField1.getText().toUpperCase();
                 if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
+                        this.avisosjLabel1.setText("");
                         contarLetrasCorrectas();
                         checkFila(a41jLabel4_1, 0);
                         checkFila(a42jLabel4_2, 1);
@@ -783,6 +796,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 entrada = this.inputjTextField1.getText().toUpperCase();
                 if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
+                        this.avisosjLabel1.setText("");
                         contarLetrasCorrectas();
                         checkFila(a51jLabel5_1, 0);
                         checkFila(a52jLabel5_2, 1);
@@ -803,6 +817,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 entrada = this.inputjTextField1.getText().toUpperCase();
                 if (entrada.matches("[Ñña-zA-Z]{5}")) {
                     if (motor.checkPalabra(entrada)) {
+                        this.avisosjLabel1.setText("");
                         contarLetrasCorrectas();
                         checkFila(a61jLabel6_1, 0);
                         checkFila(a62jLabel6_2, 1);
@@ -952,6 +967,30 @@ public class MainJFrame extends javax.swing.JFrame {
      this.inputjTextField1.setText(entrada+"M");
     }//GEN-LAST:event_mjButton7ActionPerformed
 
+    private void reiniciarjMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarjMenuItem1ActionPerformed
+            for (Object label : this.letrasjPanel2.getComponents()) {
+                ((javax.swing.JLabel)label).setText("-");
+                ((javax.swing.JLabel)label).setForeground(new java.awt.Color(51, 51, 51));
+            }
+            for (Object boton : this.DosFilasTecladojPanel3.getComponents()) {
+                ((javax.swing.JButton)boton).setBackground(new java.awt.Color(238, 238, 238));
+            }
+            this.zjButton1.setBackground(new java.awt.Color(238, 238, 238));
+            this.xjButton2.setBackground(new java.awt.Color(238, 238, 238));
+            this.cjButton3.setBackground(new java.awt.Color(238, 238, 238));
+            this.vjButton4.setBackground(new java.awt.Color(238, 238, 238));
+            this.bjButton5.setBackground(new java.awt.Color(238, 238, 238));
+            this.njButton6.setBackground(new java.awt.Color(238, 238, 238));
+            this.mjButton7.setBackground(new java.awt.Color(238, 238, 238));
+            this.BorrarjButton8.setBackground(new java.awt.Color(238, 238, 238));
+            contador=0;
+            this.letrasPorPalabra = new LinkedHashMap<>();
+            entrada="";
+            palabra = motor.obtenerPalabraAleatoria().toUpperCase();
+            this.avisosjLabel1.setText("");
+            this.inputjTextField1.setText("");
+    }//GEN-LAST:event_reiniciarjMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1048,6 +1087,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton ojButton1_9;
     private javax.swing.JButton pjButton1_10;
     private javax.swing.JButton qjButton1_1;
+    private javax.swing.JMenuItem reiniciarjMenuItem1;
     private javax.swing.JButton rjButton1_4;
     private javax.swing.JButton sjButton2_2;
     private javax.swing.JPanel tecladojPanel;
@@ -1121,7 +1161,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 return boton;
             }
         }
-        return null;
+        return botones[0];
     }
 
 }

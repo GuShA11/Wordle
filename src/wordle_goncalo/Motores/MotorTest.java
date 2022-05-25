@@ -5,7 +5,6 @@
 package wordle_goncalo.Motores;
 
 import wordle_goncalo.Motores.IMotorWordle;
-import java.util.List;
 
 /**
  *
@@ -17,12 +16,21 @@ public class MotorTest implements IMotorWordle{
 
     @Override
     public boolean checkPalabra(String string) {
-            return true;
-
+        return true;
     }
 
     @Override
     public String obtenerPalabraAleatoria() {
         return "ANXOA";
+    }
+
+    @Override
+    public boolean anadirPalabra(String string) {
+        return true;
+    }
+
+    @Override
+    public boolean removePalabra(String string) {
+        return true;
     }
 }

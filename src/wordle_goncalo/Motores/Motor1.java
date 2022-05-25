@@ -29,12 +29,21 @@ public class Motor1 implements IMotorWordle {
     @Override
     public boolean checkPalabra(String string) {
             return nombre.contains(string.toLowerCase());
-
     }
 
     @Override
     public String obtenerPalabraAleatoria() {
         java.util.Random generador = new java.util.Random();
         return nombre.get(generador.nextInt(nombre.size()));
+    }
+
+    @Override
+    public boolean anadirPalabra(String string) {
+        return nombre.add(string);
+    }
+
+    @Override
+    public boolean removePalabra(String string) {
+        return nombre.remove(string);
     }
 }

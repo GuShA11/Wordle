@@ -83,6 +83,7 @@ public class ConfigMotorjDialog extends javax.swing.JDialog {
         );
 
         altajLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        altajLabel2.setForeground(new java.awt.Color(0, 204, 0));
         altajLabel2.setText("Alta Palabra");
 
         anadirPalabrajToggleButton1.setText("Añadir");
@@ -125,6 +126,7 @@ public class ConfigMotorjDialog extends javax.swing.JDialog {
         );
 
         bajajLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bajajLabel3.setForeground(new java.awt.Color(255, 51, 51));
         bajajLabel3.setText("Baja Palabra");
 
         inputBajaPalabrajTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +241,7 @@ public class ConfigMotorjDialog extends javax.swing.JDialog {
                     if (motor.getClass().getName().equalsIgnoreCase(org.daw1.wordle_goncalo.Motores.MotorBBDD.class.getName())) {
                         motor.anadirPalabra(entrada.toUpperCase());
                     } else {
-                        motor.anadirPalabra(entrada.toUpperCase() + "\n");
+                        motor.anadirPalabra("\n" + entrada.toUpperCase() + "\n");
                     }
                 } catch (IOException | SQLException ex) {
                     Logger.getLogger(ConfigMotorjDialog.class.getName()).log(Level.SEVERE, null, ex);

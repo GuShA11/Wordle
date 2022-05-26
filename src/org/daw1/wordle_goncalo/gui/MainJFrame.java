@@ -590,13 +590,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(140, 140, 140)
+                            .addGap(160, 160, 160)
                             .addComponent(nombrejLabel1))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(70, 70, 70)
+                            .addGap(90, 90, 90)
                             .addComponent(letrasjPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(70, 70, 70)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(avisosjLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -806,6 +806,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 checkFila(j4, 3);
                 checkFila(j5, 4);
                 contador++;
+                this.inputjTextField1.setText("");
             } else {
                 this.avisosjLabel1.setText("La palabra no existe");
                 this.avisosjLabel1.setForeground(COLOR_ROJO);
@@ -970,6 +971,11 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     private void gestionMotorjMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionMotorjMenuItem1ActionPerformed
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ConfigMotorjDialog gestionMotor = new ConfigMotorjDialog(this, true, motor);
         gestionMotor.setVisible(true);
         try {

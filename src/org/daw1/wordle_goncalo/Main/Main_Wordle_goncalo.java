@@ -4,8 +4,6 @@
  */
 package org.daw1.wordle_goncalo.Main;
 
-import org.daw1.wordle_goncalo.Motores.MotorTest;
-import org.daw1.wordle_goncalo.Motores.MotorFichero;
 
 /**
  *
@@ -17,9 +15,6 @@ public class Main_Wordle_goncalo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MotorTest m2 = new MotorTest();
-        MotorFichero m3 = new MotorFichero(org.daw1.wordle_goncalo.gui.MainJFrame.file);
-
-        org.daw1.wordle_goncalo.Main.Wordle.lanzar(m3);
+        org.daw1.wordle_goncalo.Main.Wordle.lanzar();
     }
 }

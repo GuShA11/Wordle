@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package wordle_goncalo.gui;
+package org.daw1.wordle_goncalo.gui;
 
-import wordle_goncalo.Motores.*;
-import wordle_goncalo.Motores.IMotorWordle;
+import org.daw1.wordle_goncalo.Motores.*;
 import java.awt.Color;
 import java.io.File;
 import java.nio.file.Path;
@@ -13,7 +12,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import wordle_goncalo.Motores.MotorFichero;
 
 /**
  *
@@ -27,11 +25,11 @@ public class MainJFrame extends javax.swing.JFrame {
     private IMotorWordle motor;
     private String palabra;
     private String entrada;
-    
+
     private static final java.awt.Color COLOR_ROJO = Color.RED;//new java.awt.Color(64,64,64);
     private static final java.awt.Color COLOR_VERDE = new java.awt.Color(51, 255, 51);
     private static final java.awt.Color COLOR_AMARILLO = Color.YELLOW;//new java.awt.Color(255,255,102);
-    
+
     public static final File file = new File(Path.of(".") + File.separator + "data" + File.separator + "archivo.txt");
 
     /**
@@ -62,6 +60,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo1buttonGroup1 = new javax.swing.ButtonGroup();
         MainjPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         tecladojPanel = new javax.swing.JPanel();
@@ -133,6 +132,11 @@ public class MainJFrame extends javax.swing.JFrame {
         archivojMenu1 = new javax.swing.JMenu();
         reiniciarjMenuItem1 = new javax.swing.JMenuItem();
         motoresjMenu2 = new javax.swing.JMenu();
+        motorTestjRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        motorFicherojRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        motorBBDDESjRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        motorBBDDGAjRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+        gestionMotorjMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -365,7 +369,6 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(tecladojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DosFilasTecladojPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tecladojPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(zjButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
                         .addComponent(xjButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
@@ -573,6 +576,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        avisosjLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         avisosjLabel1.setText(mensaje);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -583,25 +587,25 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(116, 116, 116)
+                            .addGap(140, 140, 140)
                             .addComponent(nombrejLabel1))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
+                            .addGap(70, 70, 70)
                             .addComponent(letrasjPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(avisosjLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(inputjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(enviarjButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(18, 18, 18)
                     .addComponent(tecladojPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(18, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -616,7 +620,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(enviarjButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(avisosjLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(427, 427, 427)
@@ -628,10 +632,10 @@ public class MainJFrame extends javax.swing.JFrame {
         MainjPanel.setLayout(MainjPanelLayout);
         MainjPanelLayout.setHorizontalGroup(
             MainjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainjPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainjPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         MainjPanelLayout.setVerticalGroup(
             MainjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -654,6 +658,42 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuBar1.add(archivojMenu1);
 
         motoresjMenu2.setText("Motores");
+
+        grupo1buttonGroup1.add(motorTestjRadioButtonMenuItem1);
+        motorTestjRadioButtonMenuItem1.setSelected(true);
+        motorTestjRadioButtonMenuItem1.setText("Motor Test");
+        motorTestjRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorTestjRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
+        motoresjMenu2.add(motorTestjRadioButtonMenuItem1);
+
+        grupo1buttonGroup1.add(motorFicherojRadioButtonMenuItem2);
+        motorFicherojRadioButtonMenuItem2.setText("Motor Fichero");
+        motorFicherojRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorFicherojRadioButtonMenuItem2ActionPerformed(evt);
+            }
+        });
+        motoresjMenu2.add(motorFicherojRadioButtonMenuItem2);
+
+        grupo1buttonGroup1.add(motorBBDDESjRadioButtonMenuItem3);
+        motorBBDDESjRadioButtonMenuItem3.setText("Motor BBDD (Español)");
+        motoresjMenu2.add(motorBBDDESjRadioButtonMenuItem3);
+
+        grupo1buttonGroup1.add(motorBBDDGAjRadioButtonMenuItem4);
+        motorBBDDGAjRadioButtonMenuItem4.setText("Motor BBDD (Galego)");
+        motoresjMenu2.add(motorBBDDGAjRadioButtonMenuItem4);
+
+        gestionMotorjMenuItem1.setText("Administrar Motor");
+        gestionMotorjMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestionMotorjMenuItem1ActionPerformed(evt);
+            }
+        });
+        motoresjMenu2.add(gestionMotorjMenuItem1);
+
         jMenuBar1.add(motoresjMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -683,313 +723,254 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inputjTextField1ActionPerformed
 
     private void BorrarjButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarjButton8ActionPerformed
-    entrada = this.inputjTextField1.getText();
-    if(entrada.length()>=1){
-        StringBuilder sb = new StringBuilder(entrada);
-        sb.deleteCharAt(entrada.length()-1);
-     this.inputjTextField1.setText(sb.toString());
-    }
+        entrada = this.inputjTextField1.getText();
+        if (entrada.length() >= 1) {
+            StringBuilder sb = new StringBuilder(entrada);
+            sb.deleteCharAt(entrada.length() - 1);
+            this.inputjTextField1.setText(sb.toString());
+        }
     }//GEN-LAST:event_BorrarjButton8ActionPerformed
 
     private void njButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_njButton6ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"N");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "N");
     }//GEN-LAST:event_njButton6ActionPerformed
 
     private void vjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vjButton4ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"N");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "N");
     }//GEN-LAST:event_vjButton4ActionPerformed
 
     private void qjButton1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qjButton1_1ActionPerformed
         entrada = this.inputjTextField1.getText();
-        this.inputjTextField1.setText(entrada+"Q");
+        this.inputjTextField1.setText(entrada + "Q");
     }//GEN-LAST:event_qjButton1_1ActionPerformed
 
     private void enviarjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarjButton1ActionPerformed
         switch (contador) {
             case 0:
-                entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[Ñña-zA-Z]{5}")) {
-                    if (motor.checkPalabra(entrada)) {
-                        this.avisosjLabel1.setText("");
-                        contarLetrasCorrectas();
-                        checkFila(a11jLabel1_1, 0);
-                        checkFila(a12jLabel1_2, 1);
-                        checkFila(a13jLabel1_3, 2);
-                        checkFila(a14jLabel1_4, 3);
-                        checkFila(a15jLabel1_5, 4);
-                        contador++;
-                    } else {
-                        this.avisosjLabel1.setText("La palabra no existe");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                    }
-                } else {
-                    this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-                    this.avisosjLabel1.setForeground(COLOR_ROJO);
-                }
+                printearFila(a11jLabel1_1, a12jLabel1_2, a13jLabel1_3, a14jLabel1_4, a15jLabel1_5);
                 break;
             case 1:
-                entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[Ñña-zA-Z]{5}")) {
-                    if (motor.checkPalabra(entrada)) {
-                        this.avisosjLabel1.setText("");
-                        contarLetrasCorrectas();
-                        checkFila(a21jLabel2_1, 0);
-                        checkFila(a22jLabel2_2, 1);
-                        checkFila(a23jLabel2_3, 2);
-                        checkFila(a24jLabel2_4, 3);
-                        checkFila(a25jLabel2_5, 4);
-                        contador++;
-                    } else {
-                        this.avisosjLabel1.setText("La palabra no existe");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                    }
-                } else {
-                    this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                }
+                printearFila(a21jLabel2_1, a22jLabel2_2, a23jLabel2_3, a24jLabel2_4, a25jLabel2_5);
                 break;
             case 2:
-                entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[Ñña-zA-Z]{5}")) {
-                    if (motor.checkPalabra(entrada)) {
-                        this.avisosjLabel1.setText("");
-                        contarLetrasCorrectas();
-                        checkFila(a31jLabel3_1, 0);
-                        checkFila(a32jLabel3_2, 1);
-                        checkFila(a33jLabel3_3, 2);
-                        checkFila(a34jLabel3_4, 3);
-                        checkFila(a35jLabel3_5, 4);
-                        contador++;
-                    } else {
-                        this.avisosjLabel1.setText("La palabra no existe");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                    }
-                } else {
-                        this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                }
+                printearFila(a31jLabel3_1, a32jLabel3_2, a33jLabel3_3, a34jLabel3_4, a35jLabel3_5);
                 break;
             case 3:
-                entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[Ñña-zA-Z]{5}")) {
-                    if (motor.checkPalabra(entrada)) {
-                        this.avisosjLabel1.setText("");
-                        contarLetrasCorrectas();
-                        checkFila(a41jLabel4_1, 0);
-                        checkFila(a42jLabel4_2, 1);
-                        checkFila(a43jLabel4_3, 2);
-                        checkFila(a44jLabel4_4, 3);
-                        checkFila(a45jLabel4_5, 4);
-                        contador++;
-                    } else {
-                        this.avisosjLabel1.setText("La palabra no existe");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                    }
-                } else {
-                      this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-                      this.avisosjLabel1.setForeground(COLOR_ROJO);
-                }
+                printearFila(a41jLabel4_1, a42jLabel4_2, a43jLabel4_3, a44jLabel4_4, a45jLabel4_5);
                 break;
             case 4:
-                entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[Ñña-zA-Z]{5}")) {
-                    if (motor.checkPalabra(entrada)) {
-                        this.avisosjLabel1.setText("");
-                        contarLetrasCorrectas();
-                        checkFila(a51jLabel5_1, 0);
-                        checkFila(a52jLabel5_2, 1);
-                        checkFila(a53jLabel5_3, 2);
-                        checkFila(a54jLabel5_4, 3);
-                        checkFila(a55jLabel5_5, 4);
-                        contador++;
-                    } else {
-                        this.avisosjLabel1.setText("La palabra no existe");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                    }
-                } else {
-                    this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-                    this.avisosjLabel1.setForeground(COLOR_ROJO);
-                }
+                printearFila(a51jLabel5_1, a52jLabel5_2, a53jLabel5_3, a54jLabel5_4, a55jLabel5_5);
                 break;
             case 5:
-                entrada = this.inputjTextField1.getText().toUpperCase();
-                if (entrada.matches("[Ñña-zA-Z]{5}")) {
-                    if (motor.checkPalabra(entrada)) {
-                        this.avisosjLabel1.setText("");
-                        contarLetrasCorrectas();
-                        checkFila(a61jLabel6_1, 0);
-                        checkFila(a62jLabel6_2, 1);
-                        checkFila(a63jLabel6_3, 2);
-                        checkFila(a64jLabel6_4, 3);
-                        checkFila(a65jLabel6_5, 4);
-                        contador++;
-                    } else {
-                        this.avisosjLabel1.setText("La palabra no existe");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                    }
-                } else {
-                        this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
-                        this.avisosjLabel1.setForeground(COLOR_ROJO);
-                }
+                printearFila(a61jLabel6_1, a62jLabel6_2, a63jLabel6_3, a64jLabel6_4, a65jLabel6_5);
                 break;
             default:
                 break;
         }
         if (ganarJuego()) {
-            this.avisosjLabel1.setText("¡Ganaste!");
+            this.avisosjLabel1.setText("¡Ganaste en " + contador + (contador == 1 ? " intento!" : " intentos!"));
             this.avisosjLabel1.setForeground(COLOR_VERDE);
+            this.enviarjButton1.setEnabled(false);
             contador = 7;
         } else if (contador == 6) {
-            this.avisosjLabel1.setText("¡Perdiste! La palabra era " + this.palabra);
+            this.avisosjLabel1.setText("¡Perdiste la palabra era " + this.palabra + "!");
             this.avisosjLabel1.setForeground(COLOR_ROJO);
+            this.enviarjButton1.setEnabled(false);
         }
     }//GEN-LAST:event_enviarjButton1ActionPerformed
 
+    private void printearFila(JLabel j1, JLabel j2, JLabel j3, JLabel j4, JLabel j5) {
+        entrada = this.inputjTextField1.getText().toUpperCase();
+        if (entrada.matches("[Ñña-zA-Z]{5}")) {
+            if (motor.checkPalabra(entrada)) {
+                this.avisosjLabel1.setText("");
+                contarLetrasCorrectas();
+                checkFila(j1, 0);
+                checkFila(j2, 1);
+                checkFila(j3, 2);
+                checkFila(j4, 3);
+                checkFila(j5, 4);
+                contador++;
+            } else {
+                this.avisosjLabel1.setText("La palabra no existe");
+                this.avisosjLabel1.setForeground(COLOR_ROJO);
+            }
+        } else {
+            this.avisosjLabel1.setText("¡La palabra debe estar compuesta por 5 letras!");
+            this.avisosjLabel1.setForeground(COLOR_ROJO);
+        }
+    }
+
     private void wjButton1_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wjButton1_2ActionPerformed
-       entrada = this.inputjTextField1.getText();
-       this.inputjTextField1.setText(entrada+"W");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "W");
     }//GEN-LAST:event_wjButton1_2ActionPerformed
 
     private void ejButton1_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ejButton1_3ActionPerformed
-      entrada = this.inputjTextField1.getText();
-      this.inputjTextField1.setText(entrada+"E");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "E");
     }//GEN-LAST:event_ejButton1_3ActionPerformed
 
     private void rjButton1_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rjButton1_4ActionPerformed
-     entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"R");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "R");
     }//GEN-LAST:event_rjButton1_4ActionPerformed
 
     private void tjButton1_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tjButton1_5ActionPerformed
-     entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"T");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "T");
     }//GEN-LAST:event_tjButton1_5ActionPerformed
 
     private void yjButton1_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yjButton1_6ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"Y");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "Y");
     }//GEN-LAST:event_yjButton1_6ActionPerformed
 
     private void ujButton1_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ujButton1_7ActionPerformed
-     entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"U");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "U");
     }//GEN-LAST:event_ujButton1_7ActionPerformed
 
     private void ijButton1_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ijButton1_8ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"I");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "I");
     }//GEN-LAST:event_ijButton1_8ActionPerformed
 
     private void ojButton1_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ojButton1_9ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"O");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "O");
     }//GEN-LAST:event_ojButton1_9ActionPerformed
 
     private void pjButton1_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pjButton1_10ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"P");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "P");
     }//GEN-LAST:event_pjButton1_10ActionPerformed
 
     private void ajButton2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajButton2_1ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"A");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "A");
     }//GEN-LAST:event_ajButton2_1ActionPerformed
 
     private void sjButton2_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sjButton2_2ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"S");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "S");
     }//GEN-LAST:event_sjButton2_2ActionPerformed
 
     private void djButton2_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_djButton2_3ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"D");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "D");
     }//GEN-LAST:event_djButton2_3ActionPerformed
 
     private void fjButton2_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fjButton2_4ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"F");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "F");
     }//GEN-LAST:event_fjButton2_4ActionPerformed
 
     private void gjButton2_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gjButton2_5ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"G");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "G");
     }//GEN-LAST:event_gjButton2_5ActionPerformed
 
     private void hjButton2_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hjButton2_6ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"H");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "H");
     }//GEN-LAST:event_hjButton2_6ActionPerformed
 
     private void jjButton2_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jjButton2_7ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"J");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "J");
     }//GEN-LAST:event_jjButton2_7ActionPerformed
 
     private void kjButton2_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kjButton2_8ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"K");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "K");
     }//GEN-LAST:event_kjButton2_8ActionPerformed
 
     private void ljButton2_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ljButton2_9ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"L");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "L");
     }//GEN-LAST:event_ljButton2_9ActionPerformed
 
     private void nnjButton2_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nnjButton2_10ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"Ñ");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "Ñ");
     }//GEN-LAST:event_nnjButton2_10ActionPerformed
 
     private void zjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zjButton1ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"Z");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "Z");
     }//GEN-LAST:event_zjButton1ActionPerformed
 
     private void xjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xjButton2ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"X");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "X");
     }//GEN-LAST:event_xjButton2ActionPerformed
 
     private void cjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cjButton3ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"C");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "C");
     }//GEN-LAST:event_cjButton3ActionPerformed
 
     private void bjButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjButton5ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"B");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "B");
     }//GEN-LAST:event_bjButton5ActionPerformed
 
     private void mjButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mjButton7ActionPerformed
-    entrada = this.inputjTextField1.getText();
-     this.inputjTextField1.setText(entrada+"M");
+        entrada = this.inputjTextField1.getText();
+        this.inputjTextField1.setText(entrada + "M");
     }//GEN-LAST:event_mjButton7ActionPerformed
 
     private void reiniciarjMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarjMenuItem1ActionPerformed
-            for (Object label : this.letrasjPanel2.getComponents()) {
-                ((javax.swing.JLabel)label).setText("-");
-                ((javax.swing.JLabel)label).setForeground(new java.awt.Color(51, 51, 51));
-            }
-            for (Object boton : this.DosFilasTecladojPanel3.getComponents()) {
-                ((javax.swing.JButton)boton).setBackground(new java.awt.Color(238, 238, 238));
-            }
-            this.zjButton1.setBackground(new java.awt.Color(238, 238, 238));
-            this.xjButton2.setBackground(new java.awt.Color(238, 238, 238));
-            this.cjButton3.setBackground(new java.awt.Color(238, 238, 238));
-            this.vjButton4.setBackground(new java.awt.Color(238, 238, 238));
-            this.bjButton5.setBackground(new java.awt.Color(238, 238, 238));
-            this.njButton6.setBackground(new java.awt.Color(238, 238, 238));
-            this.mjButton7.setBackground(new java.awt.Color(238, 238, 238));
-            this.BorrarjButton8.setBackground(new java.awt.Color(238, 238, 238));
-            contador=0;
-            this.letrasPorPalabra = new LinkedHashMap<>();
-            entrada="";
-            palabra = motor.obtenerPalabraAleatoria().toUpperCase();
-            this.avisosjLabel1.setText("");
-            this.inputjTextField1.setText("");
+        resetProgram();
     }//GEN-LAST:event_reiniciarjMenuItem1ActionPerformed
+
+    private void resetProgram() {
+        for (Object label : this.letrasjPanel2.getComponents()) {
+            ((javax.swing.JLabel) label).setText("-");
+            ((javax.swing.JLabel) label).setForeground(new java.awt.Color(51, 51, 51));
+        }
+        for (Object boton : this.DosFilasTecladojPanel3.getComponents()) {
+            ((javax.swing.JButton) boton).setBackground(new java.awt.Color(238, 238, 238));
+        }
+        this.zjButton1.setBackground(new java.awt.Color(238, 238, 238));
+        this.xjButton2.setBackground(new java.awt.Color(238, 238, 238));
+        this.cjButton3.setBackground(new java.awt.Color(238, 238, 238));
+        this.vjButton4.setBackground(new java.awt.Color(238, 238, 238));
+        this.bjButton5.setBackground(new java.awt.Color(238, 238, 238));
+        this.njButton6.setBackground(new java.awt.Color(238, 238, 238));
+        this.mjButton7.setBackground(new java.awt.Color(238, 238, 238));
+        this.BorrarjButton8.setBackground(new java.awt.Color(238, 238, 238));
+        contador = 0;
+        this.letrasPorPalabra = new LinkedHashMap<>();
+        entrada = "";
+        palabra = motor.obtenerPalabraAleatoria().toUpperCase();
+        this.avisosjLabel1.setText("");
+        this.inputjTextField1.setText("");
+        this.enviarjButton1.setEnabled(true);
+    }
+
+    private void gestionMotorjMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionMotorjMenuItem1ActionPerformed
+        ConfigMotorjDialog gestionMotor = new ConfigMotorjDialog(this, true, motor);
+        gestionMotor.setVisible(true);
+        resetProgram();
+    }//GEN-LAST:event_gestionMotorjMenuItem1ActionPerformed
+
+    private void motorTestjRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorTestjRadioButtonMenuItem1ActionPerformed
+        if (this.motorTestjRadioButtonMenuItem1.isSelected()) {
+            motor = new MotorTest();
+        }
+        resetProgram();
+    }//GEN-LAST:event_motorTestjRadioButtonMenuItem1ActionPerformed
+
+    private void motorFicherojRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorFicherojRadioButtonMenuItem2ActionPerformed
+        if (this.motorFicherojRadioButtonMenuItem2.isSelected()) {
+            motor = new MotorFichero(file);
+        }
+        resetProgram();
+    }//GEN-LAST:event_motorFicherojRadioButtonMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1069,7 +1050,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton ejButton1_3;
     private javax.swing.JButton enviarjButton1;
     private javax.swing.JButton fjButton2_4;
+    private javax.swing.JMenuItem gestionMotorjMenuItem1;
     private javax.swing.JButton gjButton2_5;
+    private javax.swing.ButtonGroup grupo1buttonGroup1;
     private javax.swing.JButton hjButton2_6;
     private javax.swing.JButton ijButton1_8;
     private javax.swing.JTextField inputjTextField1;
@@ -1080,6 +1063,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel letrasjPanel2;
     private javax.swing.JButton ljButton2_9;
     private javax.swing.JButton mjButton7;
+    private javax.swing.JRadioButtonMenuItem motorBBDDESjRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem motorBBDDGAjRadioButtonMenuItem4;
+    private javax.swing.JRadioButtonMenuItem motorFicherojRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem motorTestjRadioButtonMenuItem1;
     private javax.swing.JMenu motoresjMenu2;
     private javax.swing.JButton njButton6;
     private javax.swing.JButton nnjButton2_10;
@@ -1104,39 +1091,38 @@ public class MainJFrame extends javax.swing.JFrame {
         if ((entrada.charAt(numero_letra) + "").equalsIgnoreCase(palabra.charAt(numero_letra) + "")) {
             j.setText(entrada.charAt(numero_letra) + "");
             j.setForeground(COLOR_VERDE);
-            pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_VERDE);
-            
+            pintarTeclado(entrada.charAt(numero_letra) + "").setBackground(COLOR_VERDE);
+
         } else if ((palabra).contains(entrada.charAt(numero_letra) + "")) {
             j.setText(entrada.charAt(numero_letra) + "");
             if (letrasPorPalabra.get(entrada.charAt(numero_letra)) != 0) {
                 j.setForeground(COLOR_AMARILLO);
-                if(pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_VERDE){
-                    pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_AMARILLO);
+                if (pintarTeclado(entrada.charAt(numero_letra) + "").getBackground() != COLOR_VERDE) {
+                    pintarTeclado(entrada.charAt(numero_letra) + "").setBackground(COLOR_AMARILLO);
                 }
-                letrasPorPalabra.put(entrada.charAt(numero_letra), letrasPorPalabra.get(entrada.charAt(numero_letra))-1);
+                letrasPorPalabra.put(entrada.charAt(numero_letra), letrasPorPalabra.get(entrada.charAt(numero_letra)) - 1);
             } else {
                 j.setForeground(COLOR_ROJO);
-                if(pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_VERDE && pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_AMARILLO){
-                    pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_ROJO);
+                if (pintarTeclado(entrada.charAt(numero_letra) + "").getBackground() != COLOR_VERDE && pintarTeclado(entrada.charAt(numero_letra) + "").getBackground() != COLOR_AMARILLO) {
+                    pintarTeclado(entrada.charAt(numero_letra) + "").setBackground(COLOR_ROJO);
                 }
             }
         } else {
             j.setText(entrada.charAt(numero_letra) + "");
             j.setForeground(COLOR_ROJO);
-            if(pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_VERDE && pintarTeclado(entrada.charAt(numero_letra)+"").getBackground()!=COLOR_AMARILLO){
-                    pintarTeclado(entrada.charAt(numero_letra)+"").setBackground(COLOR_ROJO);
-                }
+            if (pintarTeclado(entrada.charAt(numero_letra) + "").getBackground() != COLOR_VERDE && pintarTeclado(entrada.charAt(numero_letra) + "").getBackground() != COLOR_AMARILLO) {
+                pintarTeclado(entrada.charAt(numero_letra) + "").setBackground(COLOR_ROJO);
+            }
         }
     }
 
     public boolean ganarJuego() {
         if (entrada.matches("[a-zA-Z]{5}")) {
-                    return (entrada.charAt(0) + "").equalsIgnoreCase(palabra.charAt(0) + "") && (entrada.charAt(1) + "").equalsIgnoreCase(palabra.charAt(1) + "") && (entrada.charAt(2) + "").equalsIgnoreCase(palabra.charAt(2) + "") && (entrada.charAt(3) + "").equalsIgnoreCase(palabra.charAt(3) + "") && (entrada.charAt(4) + "").equalsIgnoreCase(palabra.charAt(4) + "");
-        }
-        else{
+            return (entrada.charAt(0) + "").equalsIgnoreCase(palabra.charAt(0) + "") && (entrada.charAt(1) + "").equalsIgnoreCase(palabra.charAt(1) + "") && (entrada.charAt(2) + "").equalsIgnoreCase(palabra.charAt(2) + "") && (entrada.charAt(3) + "").equalsIgnoreCase(palabra.charAt(3) + "") && (entrada.charAt(4) + "").equalsIgnoreCase(palabra.charAt(4) + "");
+        } else {
             return false;
         }
-        
+
     }
 
     public void contarLetrasCorrectas() {
@@ -1153,7 +1139,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public JButton pintarTeclado(String c) {
         JButton[] botones = {qjButton1_1, wjButton1_2, ejButton1_3, rjButton1_4, tjButton1_5, yjButton1_6, ujButton1_7, ijButton1_8, ojButton1_9, pjButton1_10, ajButton2_1, sjButton2_2, djButton2_3, fjButton2_4, gjButton2_5, hjButton2_6, jjButton2_7, kjButton2_8, ljButton2_9, nnjButton2_10, zjButton1, xjButton2, cjButton3, vjButton4, bjButton5, njButton6, mjButton7};
         for (JButton boton : botones) {
@@ -1163,5 +1149,4 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         return botones[0];
     }
-
 }

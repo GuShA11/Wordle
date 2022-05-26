@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package wordle_goncalo.Motores;
+package org.daw1.wordle_goncalo.Motores;
 
-import wordle_goncalo.Motores.IMotorWordle;
+import org.daw1.wordle_goncalo.Motores.IMotorWordle;
 
 /**
  *

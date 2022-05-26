@@ -2,16 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package wordle_goncalo.Main;
+package org.daw1.wordle_goncalo.Main;
 
-import wordle_goncalo.gui.MainJFrame;
-import wordle_goncalo.Motores.IMotorWordle.*;
+import org.daw1.wordle_goncalo.gui.MainJFrame;
 /**
  *
  * @author Gonçalo
  */
 public class Wordle {
-    public static void lanzar(wordle_goncalo.Motores.IMotorWordle motor){
+    public static void lanzar(org.daw1.wordle_goncalo.Motores.IMotorWordle motor){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame(motor).setVisible(true);

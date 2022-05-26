@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package wordle_goncalo.Motores;
+package org.daw1.wordle_goncalo.Motores;
 
 import java.io.*;
 import java.util.logging.Level;
@@ -80,13 +80,13 @@ public class MotorFichero implements IMotorWordle {
 
     @Override
     public boolean removePalabra(String s) {
-        s = s.toLowerCase().trim();
-        if (checkPalabra(s)) {
+        if (checkPalabra(s.toUpperCase())) {
             if (!file.exists()) {
                 crearFile();
             }
-            if (almacen.contains(s)) {
-                if (almacen.remove(s)) {
+            colocarPalabrasAlmacenEnFichero();
+            if (almacen.contains(s.toUpperCase())) {
+                if (almacen.remove(s.toUpperCase())) {
                     colocarPalabrasAlmacenEnFichero();
                     return true;
                 }
@@ -134,7 +134,8 @@ public class MotorFichero implements IMotorWordle {
     @Override
     public boolean checkPalabra(String string) {
         if (string.matches("[ñÑa-zA-Z]{5}")) {
-            return almacen.contains(string);
+            colocarPalabrasFicheroEnAlmacen();
+            return almacen.contains(string.toUpperCase());
         } else {
             return false;
         }

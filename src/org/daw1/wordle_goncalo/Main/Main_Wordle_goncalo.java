@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package wordle_goncalo.Main;
+package org.daw1.wordle_goncalo.Main;
 
-import wordle_goncalo.Motores.*;
+import org.daw1.wordle_goncalo.Motores.MotorTest;
+import org.daw1.wordle_goncalo.Motores.MotorFichero;
+import org.daw1.wordle_goncalo.Motores.Motor1;
 
 /**
  *
@@ -18,9 +20,9 @@ public class Main_Wordle_goncalo {
      public static void main(String[] args) {
          Motor1 m1 = new Motor1();
          MotorTest m2= new MotorTest();
-         MotorFichero m3= new MotorFichero(wordle_goncalo.gui.MainJFrame.file);
+         MotorFichero m3= new MotorFichero(org.daw1.wordle_goncalo.gui.MainJFrame.file);
         
-        wordle_goncalo.Main.Wordle.lanzar(m3);
+        org.daw1.wordle_goncalo.Main.Wordle.lanzar(m3);
     }
 }
     

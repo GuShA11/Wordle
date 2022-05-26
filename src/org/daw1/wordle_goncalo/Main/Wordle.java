@@ -4,25 +4,38 @@
  */
 package org.daw1.wordle_goncalo.Main;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.daw1.wordle_goncalo.gui.MainJFrame;
+
 /**
  *
  * @author Gonçalo
  */
 public class Wordle {
-    public static void lanzar(org.daw1.wordle_goncalo.Motores.IMotorWordle motor){
+
+    public static void lanzar(org.daw1.wordle_goncalo.Motores.IMotorWordle motor) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame(motor).setVisible(true);
+                try {
+                    new MainJFrame(motor).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Wordle.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
-    public static void lanzar(){
+
+    public static void lanzar() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                try {
+                    new MainJFrame().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Wordle.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
-    }    
-    
+    }
 }

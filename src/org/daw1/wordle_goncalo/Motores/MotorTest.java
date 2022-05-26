@@ -10,7 +10,8 @@ import org.daw1.wordle_goncalo.Motores.IMotorWordle;
  *
  * @author Gonçalo
  */
-public class MotorTest implements IMotorWordle{
+public class MotorTest implements IMotorWordle {
+
     public MotorTest() {
     }
 
@@ -21,7 +22,7 @@ public class MotorTest implements IMotorWordle{
 
     @Override
     public String obtenerPalabraAleatoria() {
-        return "ANXOA";
+        return "CICLO";
     }
 
     @Override

@@ -8,8 +8,11 @@ import org.daw1.wordle_goncalo.Motores.*;
 import java.awt.Color;
 import java.io.File;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -37,14 +40,14 @@ public class MainJFrame extends javax.swing.JFrame {
      *
      * @param motor
      */
-    public MainJFrame(IMotorWordle motor) {
+    public MainJFrame(IMotorWordle motor) throws SQLException {
         this.letrasPorPalabra = new LinkedHashMap<>();
         initComponents();
         this.motor = motor;
         this.palabra = motor.obtenerPalabraAleatoria().toUpperCase();
     }
 
-    public MainJFrame() {
+    public MainJFrame() throws SQLException {
         this.letrasPorPalabra = new LinkedHashMap<>();
         initComponents();
         this.motor = new MotorTest();
@@ -680,10 +683,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         grupo1buttonGroup1.add(motorBBDDESjRadioButtonMenuItem3);
         motorBBDDESjRadioButtonMenuItem3.setText("Motor BBDD (Español)");
+        motorBBDDESjRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorBBDDESjRadioButtonMenuItem3ActionPerformed(evt);
+            }
+        });
         motoresjMenu2.add(motorBBDDESjRadioButtonMenuItem3);
 
         grupo1buttonGroup1.add(motorBBDDGAjRadioButtonMenuItem4);
         motorBBDDGAjRadioButtonMenuItem4.setText("Motor BBDD (Galego)");
+        motorBBDDGAjRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorBBDDGAjRadioButtonMenuItem4ActionPerformed(evt);
+            }
+        });
         motoresjMenu2.add(motorBBDDGAjRadioButtonMenuItem4);
 
         gestionMotorjMenuItem1.setText("Administrar Motor");
@@ -924,10 +937,14 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_mjButton7ActionPerformed
 
     private void reiniciarjMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarjMenuItem1ActionPerformed
-        resetProgram();
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_reiniciarjMenuItem1ActionPerformed
 
-    private void resetProgram() {
+    private void resetProgram() throws SQLException {
         for (Object label : this.letrasjPanel2.getComponents()) {
             ((javax.swing.JLabel) label).setText("-");
             ((javax.swing.JLabel) label).setForeground(new java.awt.Color(51, 51, 51));
@@ -955,22 +972,56 @@ public class MainJFrame extends javax.swing.JFrame {
     private void gestionMotorjMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionMotorjMenuItem1ActionPerformed
         ConfigMotorjDialog gestionMotor = new ConfigMotorjDialog(this, true, motor);
         gestionMotor.setVisible(true);
-        resetProgram();
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_gestionMotorjMenuItem1ActionPerformed
 
     private void motorTestjRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorTestjRadioButtonMenuItem1ActionPerformed
         if (this.motorTestjRadioButtonMenuItem1.isSelected()) {
             motor = new MotorTest();
         }
-        resetProgram();
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_motorTestjRadioButtonMenuItem1ActionPerformed
 
     private void motorFicherojRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorFicherojRadioButtonMenuItem2ActionPerformed
         if (this.motorFicherojRadioButtonMenuItem2.isSelected()) {
             motor = new MotorFichero(file);
         }
-        resetProgram();
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_motorFicherojRadioButtonMenuItem2ActionPerformed
+
+    private void motorBBDDESjRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorBBDDESjRadioButtonMenuItem3ActionPerformed
+        if (this.motorBBDDESjRadioButtonMenuItem3.isSelected()) {
+            motor = new MotorBBDD("es");
+        }
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_motorBBDDESjRadioButtonMenuItem3ActionPerformed
+
+    private void motorBBDDGAjRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorBBDDGAjRadioButtonMenuItem4ActionPerformed
+        if (this.motorBBDDGAjRadioButtonMenuItem4.isSelected()) {
+            motor = new MotorBBDD("gl");
+        }
+        try {
+            resetProgram();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_motorBBDDGAjRadioButtonMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1002,7 +1053,11 @@ public class MainJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                try {
+                    new MainJFrame().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

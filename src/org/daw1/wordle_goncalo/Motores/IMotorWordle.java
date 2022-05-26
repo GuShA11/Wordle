@@ -4,17 +4,20 @@
  */
 package org.daw1.wordle_goncalo.Motores;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 /**
  *
  * @author Gonçalo
  */
 public interface IMotorWordle {
-    
+
     public boolean checkPalabra(String string);
 
-    public String obtenerPalabraAleatoria();
-    
-    public boolean anadirPalabra(String string);
-    
-    public boolean removePalabra(String string);
+    public String obtenerPalabraAleatoria() throws SQLException;
+
+    public boolean anadirPalabra(String string) throws IOException, SQLException;
+
+    public boolean removePalabra(String string) throws SQLException;
 }

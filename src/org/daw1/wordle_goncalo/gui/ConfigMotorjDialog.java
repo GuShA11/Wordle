@@ -5,6 +5,10 @@
 package org.daw1.wordle_goncalo.gui;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.daw1.wordle_goncalo.Motores.*;
 
 /**
@@ -209,7 +213,11 @@ public class ConfigMotorjDialog extends javax.swing.JDialog {
         entrada = this.inputBajaPalabrajTextField2.getText();
         if ((entrada).matches("[Ñña-zA-Z]{5}")) {
             if (motor.checkPalabra(entrada.toUpperCase())) {
-                motor.removePalabra(entrada.toUpperCase());
+                try {
+                    motor.removePalabra(entrada.toUpperCase());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ConfigMotorjDialog.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.avisosBajaPalabrajLabel2.setForeground(COLOR_VERDE);
                 this.avisosBajaPalabrajLabel2.setText("Palabra borrada correctamente");
             } else {
@@ -227,7 +235,15 @@ public class ConfigMotorjDialog extends javax.swing.JDialog {
         entrada = this.inputAltaPalabrajTextField1.getText();
         if ((entrada).matches("[Ñña-zA-Z]{5}")) {
             if (!motor.checkPalabra(entrada.toUpperCase())) {
-                motor.anadirPalabra(entrada.toUpperCase() + "\n");
+                try {
+                    if (motor.getClass().getName().equalsIgnoreCase(org.daw1.wordle_goncalo.Motores.MotorBBDD.class.getName())) {
+                        motor.anadirPalabra(entrada.toUpperCase());
+                    } else {
+                        motor.anadirPalabra(entrada.toUpperCase() + "\n");
+                    }
+                } catch (IOException | SQLException ex) {
+                    Logger.getLogger(ConfigMotorjDialog.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.avisosAltaPalabrajLabel1.setForeground(COLOR_VERDE);
                 this.avisosAltaPalabrajLabel1.setText("¡Palabra añadida correctamente!");
             } else {
